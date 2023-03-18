@@ -1,25 +1,24 @@
 export interface Badge {
-    badgeName: String;
-    rarity: Int16Array;
+    badgeName: string;
+    rarity: number;
 }
 
 export interface Resource {
-    label: String;
-    description: String;
-    classification: String;
+    label: string;
+    description: string;
+    classification: string;
 }
 
 export interface Task {
-    uid: String;
-    name: String;
-    category: String;
+    uid: string;
+    name: string;
+    category: string;
     deadline: Date;
-    timescale: Int16Array;
+    timescale: number;
 }
 
 export interface User {
-    uid: String;
-    name: String;
-    classification: Int16Array;
+    uid: string;
+    name: string;
     badges: Badge[];
 }
