@@ -1,7 +1,7 @@
 export interface Task {
-    uid: string;
-    name: string;
-    category: string;
+    uid: String;
+    name: String;
+    category: String;
     deadline: Date;
     timescale: Int16Array;
 }
