@@ -1,59 +1,73 @@
 <script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
+	import Modal from './task.svelte';
+
+	let showModal = false;
+
+	function onSubmit(e) {
+    const formData = new FormData(e.target);
+
+    const data = {};
+    for (let field of formData) {
+      const [key, value] = field;
+      data[key] = value;
+    }
+    console.log(data)
+  }
 </script>
 
-<svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
-</svelte:head>
+<main>
+	<button on:click={() => (showModal = true)}>
+		+
+	</button>
+	
+	<Modal bind:showModal>
+		<h2 slot="header">
+			<b>Create a task</b>
+			<hr />
+		</h2>
+	
+		<form on:submit|preventDefault={onSubmit}>
+			<div>
+				<label for="name">Task Title</label>
+				<input
+				  type="text"
+				  name="tasktitle"
+				/>
+			</div>
+			<br />
+			<div>
+				<label for="name">Date</label>
+				<input
+				  type="text"
+				  name="date"
+				/>
+			</div>
+			<br />
+			<div>
+				<label for="name">Timeslot</label>
+				<input
+				  type="text"
+				  name="timeslot"
+				/>
+			</div>
+			<br />
+			<div>
+				<label for="name">Category</label>
+				<input
+				  type="text"
+				  name="category"
+				/>
+			</div>
+			<br />
+			<div>
+				<label for="name">Notes</label>
+				<input
+				  type="text"
+				  name="notes"
+				/>
+			</div>
+			<br />
+			<button type="submit">Continue</button>
+	</Modal>
+</main>
 
-<section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter />
-</section>
-
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
-</style>
