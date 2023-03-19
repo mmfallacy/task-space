@@ -1,59 +1,125 @@
-<script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
+<script lang="ts">
+	import Modal from './CreateTaskModal.svelte';
+	let showModal = false;
+
+	// example categories muna yung cat:
+	let cat = [
+		{ id: 1, text: "CS 180" },
+		{ id: 2, text: "CS 192" }
+	];
+
+	let selected;
+	let ans = '';
+
+	// sets task title and date as required fields (idk if needed pa to but i just put it)
+	function isFormValid(data: {[fieldName: string]: any}): boolean {
+    if(!isRequiredFieldValid(data.tasktitle)){
+      return false
+    }
+
+    if(!isRequiredFieldValid(data.date)){
+      return false
+    }
+    return true
+    }
+
+    function isRequiredFieldValid(value){
+    return value != null && value !== ""
+    }
+
+	function onSubmit(e) {
+		// smth here
+		
+		const formData = new FormData(e.target);
+
+		const data: any = {};
+		for (let field of formData) {
+			const [key, value] = field;
+			data[key] = value;
+		}
+
+		//just prints the data in the fields if required fields are filled up (otherwise, says invalid)
+		if(isFormValid(data)){
+			console.log(data)
+
+		} else {
+		console.log("Invalid Form")
+		}
+		
+  }
 </script>
 
-<svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
-</svelte:head>
+<main>
+	<button on:click={() => (showModal = true)}>
+		+
+	</button>
+	
+	<Modal bind:showModal>
+		<h2 slot="header">
+			<b>Create a task</b>
+			<p>An organized task schedule is key to success!</p>
+			<hr />
+		</h2>
 
-<section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
+		<form on:submit|preventDefault={onSubmit}>
 
-		to your new<br />SvelteKit app
-	</h1>
+			<div> 
+				<label for="name">Task Title</label> 
+				<input
+				  type="text"
+				  id="tasktitle"
+				  name="tasktitle"
+				/>
+			</div>
+			<br />
 
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
+			<div>
+				<label for="name">Date</label>
+				<input
+				  type=date
+				  id="date"
+				  name="date"
+				/>
+			</div>
+			<br />
 
-	<Counter />
-</section>
+			<div>
+				<label for="name">Timeslot</label>
+				<input
+				  type=time
+				  name="startTime"
+				/>
+			<nobr>-</nobr>
+				<input
+				  type=time
+				  name="endTime"
+				/>
+			</div>
+			<br />
 
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	}
+			<div>
+				<label for="name">Category</label>
+				<select value={selected} on:change="{() => ans = ''}">
+					{#each cat as c}
+						<option value={c}>
+						{c.text}
+						</option>
+					{/each}
+				</select>
 
-	h1 {
-		width: 100%;
-	}
+			</div>
+			<br />
 
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
+			<div>
+				<label for="name">Notes</label>
+				<input
+				  type="text"
+				  name="notes"
+				/>
+			</div>
+			<br />
 
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
-</style>
+			<button type="submit">Continue</button>
+	</Modal>
+</main>
+
