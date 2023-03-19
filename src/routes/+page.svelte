@@ -1,17 +1,9 @@
 <script>
-	import Modal from './task.svelte';
-
+	import Modal from './CreateTaskModal.svelte';
 	let showModal = false;
 
 	function onSubmit(e) {
-    const formData = new FormData(e.target);
-
-    const data = {};
-    for (let field of formData) {
-      const [key, value] = field;
-      data[key] = value;
-    }
-    console.log(data)
+		// smth here
   }
 </script>
 
@@ -23,9 +15,10 @@
 	<Modal bind:showModal>
 		<h2 slot="header">
 			<b>Create a task</b>
+			<p>An organized task schedule is key to success!</p>
 			<hr />
 		</h2>
-	
+
 		<form on:submit|preventDefault={onSubmit}>
 			<div>
 				<label for="name">Task Title</label>
@@ -38,7 +31,7 @@
 			<div>
 				<label for="name">Date</label>
 				<input
-				  type="text"
+				  type=date
 				  name="date"
 				/>
 			</div>
@@ -46,15 +39,20 @@
 			<div>
 				<label for="name">Timeslot</label>
 				<input
-				  type="text"
-				  name="timeslot"
+				  type=time
+				  name="startTime"
+				/>
+			<nobr>-</nobr>
+				<input
+				  type=time
+				  name="endTime"
 				/>
 			</div>
 			<br />
 			<div>
 				<label for="name">Category</label>
 				<input
-				  type="text"
+				  type=select
 				  name="category"
 				/>
 			</div>
