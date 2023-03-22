@@ -3,7 +3,6 @@
 </script>
 
 <main>
-    <h1>Sandbox Page</h1>
 	<Modal></Modal>
 </main>
 

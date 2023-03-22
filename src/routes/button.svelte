@@ -5,11 +5,9 @@
 
 
 <button class = {type}>
-    <slot></slot>
-
+        <slot></slot>
 </button>
 
 
 <style>
-
 </style>
