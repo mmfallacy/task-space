@@ -47,7 +47,6 @@
 			deadline: new Date(),
 			timescale: 1
 		}
-		let count = 0;
 
 		const data: any = {};
 		for (let field of formData) {
@@ -55,16 +54,16 @@
 			data[key] = value;
 			
 
-			if (count == 0) {
+			if (key == 'tasktitle') {
 				newTask.name = value.toString();
-				count += 1;
-				console.log(newTask.name);
 			}
 
-			else if (count == 1) {
+			else if (key == 'date') {
 				newTask.deadline = new Date(value.toString());
-				count += 1;
-				console.log(newTask.deadline);
+			}
+
+			else if (key == 'category') {
+				newTask.category = value.toString();
 			}
 			
 		}
@@ -142,9 +141,9 @@
 
 		<div>
 			<label for="name">Category</label>
-			<select value={selected} on:change="{() => ans = ''}">
+			<select name="category" value={selected} on:change="{() => ans = ''}">
 				{#each cat as c}
-					<option value={c}>
+					<option value={c.text}>
 					{c.text}
 					</option>
 				{/each}
