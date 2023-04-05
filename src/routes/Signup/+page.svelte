@@ -26,12 +26,12 @@
 
 				<div class="name-wrapper">
 					<div class="firstname">
-						<div style="margin: 0px 0px 8px 0px;">
+						<div class="name" style="margin: 0px 0px 8px 0px;">
 							<label class="TTCommons-Regular-16" for="name">First Name</label>
 						</div>
 						<div>
 							<input class="form"
-							style="width:280px"
+							style="width:100%"
 							type="text"
 							name="email"
 							/>
@@ -40,12 +40,12 @@
 					
 
 					<div class="lastname">
-						<div style="margin: 0px 0px 8px 0px;">
+						<div class="name" style="margin: 0px 0px 8px 0px;">
 							<label class="TTCommons-Regular-16" for="name">Last Name</label>
 						</div>
 						<div>
 							<input class="form"
-							style="width:280px"
+							style="width:100%"
 							type="text"
 							name="email"
 							/>
@@ -213,9 +213,24 @@
 }
 
 .name-wrapper {
-	display: flex;
-    align-items: center;
-    justify-content: space-between;
-	gap: 0px;
+	align-items:center;
+	display:flex;
 }
+
+.firstname{
+	flex: 0 0 50%;
+    max-width: 50%;
+	margin-right: 2%;
+}
+
+.lastname{
+	flex: 0 0 50%;
+    max-width: 48%;
+}
+
+.name{
+	display: flex;
+    flex-direction: column;
+}
+
 </style>
