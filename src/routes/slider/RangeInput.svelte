@@ -13,6 +13,7 @@
   <main>
     <label for={id}>{label}</label>
     <input class="RangeInput" type="range" id={id} min={min} max={max} bind:value on:input={handleInput}>
+    <p>The current value is: {value}</p>
   </main>
   
   <style>
