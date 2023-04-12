@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Modal from '../CreateTaskModal.svelte';
+	import Modal from '@/components/CreateTaskModal.svelte';
 </script>
 
 <main>
