@@ -17,6 +17,8 @@
 	let selected;
 	let ans = '';
 
+	var tasky = [];
+
 	// sets task title and date as required fields (idk if needed pa to but i just put it)
 	function isFormValid(data: {[fieldName: string]: any}): boolean {
     if(!isRequiredFieldValid(data.tasktitle)){
@@ -68,6 +70,23 @@
 			
 		}
 
+		var tasktitle = document.getElementById('tasktitle').value;
+		var date = document.getElementById('date').value;
+		var startTime = document.getElementById('startTime').value;
+		var endTime = document.getElementById('endTime').value;
+		var category = document.getElementById('category').value;
+		// var category = category.options;
+		var notes = document.getElementById('notes').value;
+		
+		tasky.push(tasktitle);
+		tasky.push(date);
+		tasky.push(startTime);
+		tasky.push(endTime);
+		tasky.push(category);
+		tasky.push(notes);
+
+		window.localStorage.setItem("UID", JSON.stringify(tasky));
+
 		
 		//just prints the data in the fields if required fields are filled up (otherwise, says invalid)
 		if(isFormValid(data)){
@@ -80,6 +99,8 @@
 		else {
 		console.log("Invalid Form")
 		}
+
+
 		
   	}
 </script>
@@ -130,18 +151,20 @@
 			<input
 			  type=time
 			  name="startTime"
+			  id="startTime"
 			/>
 		<nobr>-</nobr>
 			<input
 			  type=time
 			  name="endTime"
+			  id="endTime"
 			/>
 		</div>
 		<br />
 
 		<div>
 			<label for="name">Category</label>
-			<select name="category" value={selected} on:change="{() => ans = ''}">
+			<select name="category" id="category" value={selected} on:change="{() => ans = ''}">
 				{#each cat as c}
 					<option value={c.text}>
 					{c.text}
@@ -157,6 +180,7 @@
 			<input
 			  type="text"
 			  name="notes"
+			  id="notes"
 			/>
 		</div>
 		<br />
