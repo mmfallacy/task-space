@@ -11,7 +11,7 @@ on:
       - '*'
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - name: Setup Repository
@@ -19,4 +19,4 @@ jobs:
       - name: Install deps
         run: npm install
       - name: Lint `client`
-        run: npm lint
+        run: npm run lint
