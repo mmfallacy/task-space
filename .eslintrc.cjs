@@ -1,21 +1,21 @@
 module.exports = {
-    "env": {
-        "browser": true,
-        "commonjs": true,
-        "es2021": true
+    'env': {
+        'browser': true,
+        'commonjs': true,
+        'es2021': true,
     },
-    "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended"
+    'extends': [
+        'eslint:recommended',
+        'plugin:@typescript-eslint/recommended',
     ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaVersion": "latest"
+    'parser': '@typescript-eslint/parser',
+    'parserOptions': {
+        'ecmaVersion': 'latest',
     },
-    "plugins": [
-        "@typescript-eslint"
+    'plugins': [
+        '@typescript-eslint',
     ],
-    "rules": {
+    'rules': {
         'array-bracket-spacing': 'warn',
         'comma-dangle': ['error', 'always-multiline'],
         'dot-location': ['error', 'property'],
@@ -46,5 +46,5 @@ module.exports = {
         'switch-colon-spacing': 'error',
         'template-curly-spacing': 'error',
         'template-tag-spacing': 'error',
-    }
-}
+    },
+};
