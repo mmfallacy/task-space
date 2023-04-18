@@ -14,9 +14,9 @@ const config = {
         // See https://kit.svelte.dev/docs/adapters for more information about adapters.
         adapter: adapter(),
         alias: {
-            "@": path.resolve('./src'),
-        }
-    }
+            '@': path.resolve('./src'),
+        },
+    },
 };
 
 export default config;
