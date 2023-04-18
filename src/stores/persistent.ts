@@ -17,6 +17,6 @@ export function persistent<T>(key: string, init?: T): Writable<T> {
     });
 
 
-    return _writable;
+return _writable;
 }
 
