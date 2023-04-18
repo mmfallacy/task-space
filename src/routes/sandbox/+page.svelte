@@ -1,17 +1,19 @@
 <script lang="ts">
     import Modal from "@/components/CreateTaskModal.svelte";
-    import { persistent } from "@/stores/persistent";
-
-    const count = persistent("count", 0);
-
-    count.subscribe(console.log);
-
-    count.update((v) => v + 1);
-    count.update((v) => v + 1);
+    import { tasks } from "@/stores/task";
+    // This code snippet adds a new task with given task properties.
+    /* tasks.add({ */
+    /*     uid: "test", */
+    /*     name: "Task test", */
+    /*     category: "none", */
+    /*     deadline: new Date(), */
+    /*     timescale: 2, */
+    /* }); */
 </script>
 
 <main>
     <Modal />
+    {JSON.stringify($tasks)}
 </main>
 
 <style>

@@ -1,8 +1,9 @@
-import { writable, type Writable, type Updater } from 'svelte/store';
+import { writable, type Writable } from 'svelte/store';
 import { browser } from '$app/environment';
 
+export type Persistent<T> = Writable<T>
 
-export function persistent<T>(key: string, init?: T): Writable<T> {
+export function persistent<T>(key: string, init?: T): Persistent<T> {
     const _writable = writable<T>(init);
 
     if (!browser) return _writable;
