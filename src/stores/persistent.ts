@@ -14,7 +14,7 @@ export function persistent<T>(key: string, init?: T): Persistent<T> {
         _writable.set(JSON.parse(stored));
 
     _writable.subscribe(value => {
-        localStorage?.setItem(key, JSON.stringify(value));
+        localStorage.setItem(key, JSON.stringify(value));
     });
 
 

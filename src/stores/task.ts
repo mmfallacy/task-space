@@ -1,5 +1,5 @@
 import type { Task } from '@/types';
-import { persistent, type Persistent } from './persistent';
+import { persistent } from './persistent';
 
 /**
  * An array store that contains the tasks.
@@ -9,7 +9,7 @@ function createTaskStore() {
     const { update, subscribe } = persistent<Task[]>('task-store', []);
 
     return {
-        add: (task: Task) => update(tasks => [...tasks, task]),
+        add: (task: Omit<Task, 'uid'>) => update(tasks => [...tasks, { uid: crypto.randomUUID(), ...task }]),
         delete: (uid: Task['uid']) => update(tasks => tasks.filter(task => task.uid == uid)),
         subscribe,
     };
