@@ -1,31 +1,35 @@
 module.exports = {
-    'env': {
-        'browser': true,
-        'commonjs': true,
-        'es2021': true,
+    env: {
+        browser: true,
+        commonjs: true,
+        es2021: true,
     },
-    'extends': [
+    extends: [
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
     ],
-    'parser': '@typescript-eslint/parser',
-    'parserOptions': {
-        'ecmaVersion': 'latest',
+    parser: '@typescript-eslint/parser',
+    parserOptions: {
+        ecmaVersion: 'latest',
+        extraFileExtensions: ['.svelte'],
+        // https://github.com/typescript-eslint/typescript-eslint/issues/2094
+        EXPERIMENTAL_useSourceOfProjectReferenceRedirect: true,
     },
-    'plugins': [
+    plugins: [
+        'svelte3',
         '@typescript-eslint',
     ],
-    'rules': {
+    rules: {
         'array-bracket-spacing': 'warn',
         'comma-dangle': ['error', 'always-multiline'],
         'dot-location': ['error', 'property'],
         'func-call-spacing': 'warn',
         'implicit-arrow-linebreak': 'warn',
-        'indent': ['error', 4, { 'SwitchCase': 1 }],
+        'indent': ['error', 4, { SwitchCase: 1 }],
         'key-spacing': 'warn',
         'keyword-spacing': 'warn',
         'new-parens': ['error', 'never'],
-        'no-extra-parens': ['error', 'all', { 'returnAssign': false }],
+        'no-extra-parens': ['error', 'all', { returnAssign: false }],
         'no-multi-spaces': 'error',
         'no-multiple-empty-lines': 'error',
         'no-tabs': 'error',
@@ -46,5 +50,6 @@ module.exports = {
         'switch-colon-spacing': 'error',
         'template-curly-spacing': 'error',
         'template-tag-spacing': 'error',
+        'quote-props': ['error', 'consistent-as-needed'],
     },
 };
