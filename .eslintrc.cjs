@@ -10,6 +10,7 @@ module.exports = {
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
+        project: ['tsconfig.json'],
         ecmaVersion: 'latest',
         extraFileExtensions: ['.svelte'],
         // https://github.com/typescript-eslint/typescript-eslint/issues/2094
@@ -59,4 +60,7 @@ module.exports = {
         'template-tag-spacing': 'error',
         'quote-props': ['error', 'consistent-as-needed'],
     },
+    settings: {
+        'svelte3/typescript': true,
+    }
 };
