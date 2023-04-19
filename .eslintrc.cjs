@@ -19,6 +19,13 @@ module.exports = {
         'svelte3',
         '@typescript-eslint',
     ],
+    overrides: [
+        {
+            files: ['*.svelte'],
+            processor: 'svelte3/svelte3',
+            rules: { 'init-declarations': 'off' },
+        },
+    ],
     rules: {
         'array-bracket-spacing': 'warn',
         'comma-dangle': ['error', 'always-multiline'],
