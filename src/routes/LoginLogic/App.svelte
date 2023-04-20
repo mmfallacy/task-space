@@ -1,26 +1,24 @@
 <script>
-	import SignUp from './SignUp.svelte';
-	import Login from './Login.svelte';
-	import { count } from './store.js';
-	count.useLocalStorage();
+    import SignUp from './SignUp.svelte';
+    import Login from './Login.svelte';
+    import { count } from './store.js';
+    count.useLocalStorage();
 
-	let isLoggedIn = false;
+    let isLoggedIn = false;
 
-	const handleLogout = () => {
-	  isLoggedIn = false;
-	};
+    const handleLogout = () => {
+        isLoggedIn = false;
+    };
 
-	const user = localStorage.getItem('user');
-	if (user) {
-	  isLoggedIn = true;
-	}
+    const user = localStorage.getItem('user');
+    if (user) {
+        isLoggedIn = true;
+    }
+</script>
 
-
-  </script>
-
-  {#if isLoggedIn}
-	<button on:click={handleLogout}>Log Out</button>
-  {:else}
-	<SignUp />
-	<Login />
-  {/if}
+{#if isLoggedIn}
+    <button on:click={handleLogout}>Log Out</button>
+{:else}
+    <SignUp />
+    <Login />
+{/if}

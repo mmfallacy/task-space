@@ -8,50 +8,54 @@
     function handleInput(event) {
         value = +event.target.value;
     }
-  </script>
+</script>
 
-  <main>
+<main>
     <label for={id}>{label}</label>
-    <input class="RangeInput" type="range" id={id} min={min} max={max} bind:value on:input={handleInput}>
+    <input
+        class="RangeInput"
+        type="range"
+        {id}
+        {min}
+        {max}
+        bind:value
+        on:input={handleInput}
+    />
     <p>The current value is: {value}</p>
-  </main>
+</main>
 
-  <style>
+<style>
+    .RangeInput {
+        width: 100%;
+        height: 10px;
+        background-color: #f1f5f9;
+        border: none;
+        border-radius: 10px;
+        -webkit-appearance: none;
+        position: relative;
+    }
 
-  .RangeInput {
-    width: 100%;
-    height: 10px;
-    background-color: #F1F5F9;
-    border: none;
-    border-radius: 10px;
-    -webkit-appearance: none;
-    position: relative;
-  }
+    .RangeInput::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 20px;
+        height: 20px;
+        background-color: #156ef0;
+        border: 1px solid #156ef0;
+        border-radius: 50%;
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+    }
 
-  .RangeInput::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 20px;
-    height: 20px;
-    background-color: #156EF0;
-    border: 1px solid #156EF0;
-    border-radius: 50%;
-    cursor: pointer;
-    position: relative;
-    z-index: 2;
-  }
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+    }
 
-  main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
-  }
-
-  label {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-
-
-  </style>
-
+    label {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+</style>

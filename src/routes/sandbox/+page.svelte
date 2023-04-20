@@ -5,7 +5,7 @@
     tasks.add({
         name: 'Task test',
         category: 'none',
-        deadline: new Date,
+        deadline: new Date(),
         timescale: 2,
     });
 </script>

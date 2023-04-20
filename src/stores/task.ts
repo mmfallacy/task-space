@@ -9,8 +9,13 @@ function createTaskStore() {
     const { update, subscribe } = persistent<Task[]>('task-store', []);
 
     return {
-        add: (task: Omit<Task, 'uid'>) => update(tasks => [...tasks, { uid: crypto.randomUUID(), ...task }]),
-        delete: (uid: Task['uid']) => update(tasks => tasks.filter(task => task.uid == uid)),
+        add: (task: Omit<Task, 'uid'>) =>
+            update((tasks) => [
+                ...tasks,
+                { uid: crypto.randomUUID(), ...task },
+            ]),
+        delete: (uid: Task['uid']) =>
+            update((tasks) => tasks.filter((task) => task.uid == uid)),
         subscribe,
     };
 }

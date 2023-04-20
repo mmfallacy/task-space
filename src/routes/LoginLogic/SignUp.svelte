@@ -11,20 +11,20 @@
         };
         localStorage.setItem('user', JSON.stringify(user));
     };
-  </script>
+</script>
 
-  <form on:submit|preventDefault={handleSubmit}>
+<form on:submit|preventDefault={handleSubmit}>
     <label>
-      Name:
-      <input type="text" bind:value={name} />
+        Name:
+        <input type="text" bind:value={name} />
     </label>
     <label>
-      Email:
-      <input type="email" bind:value={email} />
+        Email:
+        <input type="email" bind:value={email} />
     </label>
     <label>
-      Password:
-      <input type="password" bind:value={password} />
+        Password:
+        <input type="password" bind:value={password} />
     </label>
     <button type="submit">Sign Up</button>
-  </form>
+</form>

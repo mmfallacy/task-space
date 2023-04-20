@@ -1,22 +1,24 @@
 name: ESLint
 
 on:
-  workflow_dispatch:
-  push:
-    branches:
-    paths:
-      - '*'
-  pull_request:
-    paths:
-      - '*'
+    workflow_dispatch:
+    push:
+        branches:
+        paths:
+            - '*'
+    pull_request:
+        paths:
+            - '*'
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Setup Repository
-        uses: actions/checkout@v3
-      - name: Install deps
-        run: npm install
-      - name: Lint `client`
-        run: npm run lint
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Setup Repository
+              uses: actions/checkout@v3
+            - name: Install deps
+              run: npm install
+            - name: Check for formatting errors
+              run: npm run format/check
+            - name: Lint `client`
+              run: npm run lint

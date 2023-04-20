@@ -140,7 +140,7 @@
         flex-direction: column;
         flex-grow: 1;
         justify-content: flex-end;
-        background-image: url("/images/03.png");
+        background-image: url('/images/03.png');
         background-size: 100%;
         background-repeat: no-repeat;
         background-position: bottom;
@@ -240,4 +240,3 @@
         flex-direction: column;
     }
 </style>
-

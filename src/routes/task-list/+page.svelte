@@ -589,7 +589,7 @@
         margin-bottom: 0px;
     }
 
-    input[type="checkbox"] {
+    input[type='checkbox'] {
         box-sizing: border-box;
         padding: 0;
     }
@@ -728,7 +728,7 @@
     }
 
     .homebutton {
-        background-image: url("icons/HomeButton.png");
+        background-image: url('icons/HomeButton.png');
 
         background-repeat: no-repeat;
         background-position: center;
@@ -740,7 +740,7 @@
     }
 
     .taskbutton {
-        background-image: url("icons/TaskButton.png");
+        background-image: url('icons/TaskButton.png');
 
         background-repeat: no-repeat;
         background-position: center;
@@ -768,7 +768,7 @@
     }
 
     .plusbutton {
-        background-image: url("icons/PlusButton.png");
+        background-image: url('icons/PlusButton.png');
 
         background-repeat: no-repeat;
         background-position: center;
