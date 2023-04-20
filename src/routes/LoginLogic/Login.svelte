@@ -2,15 +2,15 @@
     let email = '';
     let password = '';
     let isLoggedIn = false;
-  
+
     const handleLogin = () => {
-      const user = JSON.parse(localStorage.getItem('user'));
-      if (user.email === email && user.password === password) {
-        isLoggedIn = true;
-      }
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (user.email === email && user.password === password) {
+            isLoggedIn = true;
+        }
     };
   </script>
-  
+
   {#if isLoggedIn}
     <p>Welcome back!</p>
   {:else}
@@ -26,4 +26,3 @@
       <button type="submit">Log In</button>
     </form>
   {/if}
-  

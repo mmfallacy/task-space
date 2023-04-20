@@ -2,17 +2,17 @@
     let name = '';
     let email = '';
     let password = '';
-  
+
     const handleSubmit = () => {
-      const user = {
-        name,
-        email,
-        password
-      };
-      localStorage.setItem('user', JSON.stringify(user));
+        const user = {
+            name,
+            email,
+            password,
+        };
+        localStorage.setItem('user', JSON.stringify(user));
     };
   </script>
-  
+
   <form on:submit|preventDefault={handleSubmit}>
     <label>
       Name:
@@ -28,4 +28,3 @@
     </label>
     <button type="submit">Sign Up</button>
   </form>
-  

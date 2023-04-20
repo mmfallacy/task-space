@@ -2,20 +2,20 @@
     export let min = 0;
     export let max = 100;
     export let value = 50;
-    export let label = "Slider:";
-    export let id = "slider";
-  
+    export let label = 'Slider:';
+    export let id = 'slider';
+
     function handleInput(event) {
-      value = +event.target.value;
+        value = +event.target.value;
     }
   </script>
-  
+
   <main>
     <label for={id}>{label}</label>
     <input class="RangeInput" type="range" id={id} min={min} max={max} bind:value on:input={handleInput}>
     <p>The current value is: {value}</p>
   </main>
-  
+
   <style>
 
   .RangeInput {
@@ -54,4 +54,4 @@
 
 
   </style>
-  
+
