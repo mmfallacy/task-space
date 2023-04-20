@@ -29,5 +29,6 @@ module.exports = {
     ],
     rules: {
         'prettier/prettier': 'error',
+        'svelte/valid-compile': ['error', { ignoreWarnings: true }],  
     },
 };
