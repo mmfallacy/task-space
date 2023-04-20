@@ -7,24 +7,25 @@ module.exports = {
     extends: [
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
+        'plugin:svelte/recommended',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
-        project: ['tsconfig.json'],
         ecmaVersion: 'latest',
         extraFileExtensions: ['.svelte'],
         // https://github.com/typescript-eslint/typescript-eslint/issues/2094
         EXPERIMENTAL_useSourceOfProjectReferenceRedirect: true,
     },
     plugins: [
-        'svelte3',
         '@typescript-eslint',
     ],
     overrides: [
         {
             files: ['*.svelte'],
-            processor: 'svelte3/svelte3',
-            rules: { 'init-declarations': 'off' },
+            parser: 'svelte-eslint-parser',
+            parserOptions: {
+                parser: '@typescript-eslint/parser',
+            },
         },
     ],
     rules: {
@@ -60,7 +61,4 @@ module.exports = {
         'template-tag-spacing': 'error',
         'quote-props': ['error', 'consistent-as-needed'],
     },
-    settings: {
-        'svelte3/typescript': true,
-    }
 };
