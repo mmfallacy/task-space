@@ -6,9 +6,9 @@ module.exports = {
     },
     extends: [
         'eslint:recommended',
-        'prettier',
         'plugin:@typescript-eslint/recommended',
         'plugin:svelte/recommended',
+        'plugin:prettier/recommended',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -17,7 +17,7 @@ module.exports = {
         // https://github.com/typescript-eslint/typescript-eslint/issues/2094
         EXPERIMENTAL_useSourceOfProjectReferenceRedirect: true,
     },
-    plugins: ['prettier', '@typescript-eslint'],
+    plugins: ['@typescript-eslint'],
     overrides: [
         {
             files: ['*.svelte'],
@@ -28,7 +28,6 @@ module.exports = {
         },
     ],
     rules: {
-        'prettier/prettier': 'error',
-        'svelte/valid-compile': ['error', { ignoreWarnings: true }],  
+        'svelte/valid-compile': ['error', { ignoreWarnings: true }],
     },
 };
