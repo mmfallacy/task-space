@@ -216,7 +216,10 @@
                             </div>
 
                             {#each $tasks as task (task.uid)}
-                                <div class="tasklist-row-container">
+                                <div
+                                    class="tasklist-row-container"
+                                    on:click={() => tasks.delete(task.uid)}
+                                >
                                     <div class="tasklist-row-tasktitle">
                                         <div>
                                             <p
