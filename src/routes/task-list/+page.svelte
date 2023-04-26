@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { tasks } from '@/stores/task';
 </script>
 
 <main>
@@ -35,8 +36,6 @@
                         <p class="TTCommons-Regular-16" style="color:white">
                             All Tasks
                         </p>
-
-                        <div class="flex-fill" />
 
                         <div class="checkbox-container">
                             <input type="checkbox" />
@@ -214,143 +213,55 @@
                                 <div class="tasklist-row-dropdown" />
                             </div>
 
-                            <div class="tasklist-row-container">
-                                <div class="tasklist-row-tasktitle">
-                                    <div>
-                                        <p
-                                            style="font-family:arial; font-weight: bold;"
-                                        >
-                                            Problem Set 12
-                                        </p>
+                            {#each $tasks as task (task.uid)}
+                                <div class="tasklist-row-container">
+                                    <div class="tasklist-row-tasktitle">
+                                        <div>
+                                            <p
+                                                style="font-family:arial; font-weight: bold;"
+                                            >
+                                                {task.name}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="tasklist-row-duedate">
-                                    <div>
-                                        <p style="font-family:arial">
-                                            Nov 2, 2022
-                                        </p>
+                                    <div class="tasklist-row-duedate">
+                                        <div>
+                                            <p style="font-family:arial">
+                                                {task.deadline.toString()}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="tasklist-row-category">
-                                    <div class="category-container">
-                                        <div
-                                            class="category-color"
-                                            style="background: rgb(255, 107, 0);"
-                                        />
-                                        <p style="font-family:arial">CS21</p>
+                                    <div class="tasklist-row-category">
+                                        <div class="category-container">
+                                            <div
+                                                class="category-color"
+                                                style="background: rgb(255, 107, 0);"
+                                            />
+                                            <p style="font-family:arial">
+                                                {task.category}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="tasklist-row-status">
-                                    <div>
-                                        <p
-                                            style="font-family:arial; font-weight:bold;  color: #10B981"
-                                        >
-                                            Ongoing
-                                        </p>
+                                    <div class="tasklist-row-status">
+                                        <div>
+                                            <p
+                                                style="font-family:arial; font-weight:bold;  color: #10B981"
+                                            >
+                                                Ongoing
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="tasklist-row-dropdown">
-                                    <div class="dropdown">
-                                        <p />
+                                    <div class="tasklist-row-dropdown">
+                                        <div class="dropdown">
+                                            <p />
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="tasklist-row-container">
-                                <div class="tasklist-row-tasktitle">
-                                    <div>
-                                        <p
-                                            style="font-family:arial; font-weight: bold;"
-                                        >
-                                            Problem Set 13
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="tasklist-row-duedate">
-                                    <div>
-                                        <p style="font-family:arial">
-                                            Nov 2, 2022
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="tasklist-row-category">
-                                    <div class="category-container">
-                                        <div
-                                            class="category-color"
-                                            style="background: rgb(255, 107, 0);"
-                                        />
-                                        <p style="font-family:arial">CS21</p>
-                                    </div>
-                                </div>
-
-                                <div class="tasklist-row-status">
-                                    <div>
-                                        <p
-                                            style="font-family:arial; font-weight:bold;  color: #10B981"
-                                        >
-                                            Ongoing
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="tasklist-row-dropdown">
-                                    <div class="dropdown">
-                                        <p />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="tasklist-row-container">
-                                <div class="tasklist-row-tasktitle">
-                                    <div>
-                                        <p
-                                            style="font-family:arial; font-weight: bold;"
-                                        >
-                                            Problem Set 14
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="tasklist-row-duedate">
-                                    <div>
-                                        <p style="font-family:arial">
-                                            Nov 2, 2022
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="tasklist-row-category">
-                                    <div class="category-container">
-                                        <div
-                                            class="category-color"
-                                            style="background: rgb(255, 107, 0);"
-                                        />
-                                        <p style="font-family:arial">CS21</p>
-                                    </div>
-                                </div>
-
-                                <div class="tasklist-row-status">
-                                    <div>
-                                        <p
-                                            style="font-family:arial; font-weight:bold;  color: #10B981"
-                                        >
-                                            Ongoing
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="tasklist-row-dropdown">
-                                    <div class="dropdown">
-                                        <p />
-                                    </div>
-                                </div>
-                            </div>
+                            {/each}
                         </div>
                     </div>
                 </div>
@@ -358,6 +269,7 @@
         </div>
     </div>
 </main>
+}
 
 <style>
     .tasklist-header-status {
