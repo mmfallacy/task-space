@@ -499,66 +499,11 @@
         padding: 24px;
     }
 
-    .w-100 {
-        width: 100% !important;
-    }
-
-    .flex-column {
-        flex-direction: column !important;
-    }
-
-    .d-flex {
-        display: flex !important;
-    }
-
-    .tasklist-header-left {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .tasklist-header-right {
-        display: flex;
-        gap: 16px;
-        align-items: center;
-    }
-
-    .tasklist-main-container {
-        display: block;
-        padding: 24px 32px 0;
-
-        width: 250px;
-        min-width: 250px;
-        max-width: 250px;
-        height: calc(100vh - 68px);
-        max-height: calc(100vh - 68px);
-        background: #fff;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-        padding: 24px 16px;
-        margin: 10px 10px 10px 55px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .tasklist-header {
-        margin-bottom: 16px;
-    }
-
-    .tasklist-header-container {
-        display: flex;
-        justify-content: space-between;
-    }
-
     .horizontal {
         margin-top: -20px;
         height: 1px;
         width: 100%;
         background: #e2e8f0;
-    }
-
-    .checkbox-child {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
     }
 
     .checkbox-child-title {
@@ -645,63 +590,6 @@
         margin: 10px 10px 10px 55px;
         display: flex;
         flex-direction: column;
-    }
-
-    .modal-footer {
-        background-position: right;
-        border-top: none;
-        border-bottom-left-radius: 8px;
-        border-bottom-right-radius: 8px;
-        display: flex;
-        align-items: right;
-        justify-content: space-between;
-    }
-
-    .primary-button {
-        background-color: #0a5bd0;
-
-        cursor: pointer;
-
-        font-family: Arial;
-        font-weight: 600;
-        border-radius: 5px;
-        box-shadow: none;
-        color: #f8fafc;
-        line-height: 20px;
-        height: 44px;
-
-        border: 1px solid transparent;
-        padding: 0.375rem 0.75rem;
-        font-size: 14px;
-        text-align: center;
-        vertical-align: middle;
-        display: inline-block;
-    }
-
-    .date-time-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 8px;
-    }
-
-    .form {
-        width: 100%;
-        background-color: #e2e8f0;
-        border-radius: 4px;
-        font-family: Arial;
-        padding: 12px 16px;
-        border: 1px solid #e2e8f0;
-        box-sizing: border-box;
-        transition: 0.5s;
-        outline: none;
-    }
-
-    .modal-header {
-        border-bottom: none;
-        width: 100% !important;
-        align-items: center !important;
-        line-height: 250%;
     }
 
     .navbar {
@@ -813,21 +701,6 @@
         font-family: Arial;
         font-size: 20px;
         color: black;
-        letter-spacing: -0.04em;
-    }
-
-    .TTCommons-DemiBold-34 {
-        font-family: Arial;
-        font-weight: bold;
-        font-size: 34px;
-        color: black;
-        letter-spacing: -0.04em;
-    }
-
-    .TTCommons-SemiBold-72 {
-        font-family: Arial;
-        font-size: 72px;
-        color: #04285c;
         letter-spacing: -0.04em;
     }
 </style>
