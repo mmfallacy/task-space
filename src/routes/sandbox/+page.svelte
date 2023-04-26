@@ -11,7 +11,6 @@
 </script>
 
 <main>
-    <Modal />
     {JSON.stringify($tasks)}
 </main>
 

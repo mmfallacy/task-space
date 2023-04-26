@@ -1,5 +1,7 @@
 <script lang="ts">
     import { tasks } from '@/stores/task';
+    import Modal from '@/components/CreateTaskModal.svelte';
+    let showModal = false;
 </script>
 
 <main>
@@ -9,7 +11,7 @@
         <div class="sidebar">
             <br />
             <div class="sidebar-header">
-                <button class="plus">
+                <button class="plus" on:click={() => (showModal = !showModal)}>
                     <div class="plusbutton" />
                 </button>
 
@@ -268,8 +270,8 @@
             </div>
         </div>
     </div>
+    <Modal {showModal} />
 </main>
-}
 
 <style>
     .tasklist-header-status {

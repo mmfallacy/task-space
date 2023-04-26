@@ -3,9 +3,9 @@
 
     let dialog: HTMLDialogElement;
 
-    $: if (dialog && showModal) dialog.showModal();
+    export let showModal: boolean;
 
-    let showModal = false;
+    $: if (dialog && showModal) dialog.showModal();
 
     function onSubmit(e: SubmitEvent) {
         assert(e.target instanceof HTMLFormElement);
@@ -19,8 +19,6 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <main>
-    <button on:click={() => (showModal = true)}> + </button>
-
     <dialog
         bind:this={dialog}
         on:close={() => (showModal = false)}
