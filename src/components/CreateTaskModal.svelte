@@ -1,5 +1,4 @@
 <script lang="ts">
-    import { assert } from '@/asserts';
     import { tasks } from '@/stores/task';
     import { TaskSchema } from '@/types';
 

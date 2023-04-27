@@ -20,14 +20,6 @@ export interface Resource {
     description: string;
     classification: string;
 }
-// export interface Task {
-//     uid: string;
-//     name: string;
-//     category: string;
-//     deadline: Date;
-//     timescale: number;
-// }
-
 export interface User {
     uid: string;
     name: string;
