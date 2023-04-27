@@ -3,12 +3,7 @@ name: ESLint
 on:
     workflow_dispatch:
     push:
-        branches:
-        paths:
-            - '*'
     pull_request:
-        paths:
-            - '*'
 
 jobs:
     lint:
