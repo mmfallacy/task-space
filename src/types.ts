@@ -10,18 +10,25 @@ export const TaskSchema = z.object({
 
 export type TaskType = z.infer<typeof TaskSchema>;
 
-export interface Badge {
-    badgeName: string;
-    rarity: number;
-}
+export const BadgeSchema = z.object({
+    badgeName: z.string(),
+    rarity: z.coerce.number(),
+});
 
-export interface Resource {
-    label: string;
-    description: string;
-    classification: string;
-}
-export interface User {
-    uid: string;
-    name: string;
-    badges: Badge[];
-}
+export type BadgeType = z.infer<typeof BadgeSchema>;
+
+export const ResourceSchema = z.object({
+    label: z.string(),
+    description: z.string(),
+    classification: z.string(),
+});
+
+export type ResourceType = z.infer<typeof ResourceSchema>;
+
+export const UserSchema = z.object({
+    uid: z.string(),
+    name: z.string(),
+    badges: z.array(BadgeSchema),
+});
+
+export type UserType = z.infer<typeof UserSchema>;
