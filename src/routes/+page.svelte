@@ -1,5 +1,46 @@
-<script>
+<script lang="ts">
+    import { CredentialsSchema, RawCredentialsSchema } from '@/types';
+    import { hashSHA256 } from '@/utils';
+    import { credentials } from '@/stores/credentials';
+    import { user } from '@/stores/user';
+    import { assert } from '@/asserts';
+    import { z } from 'zod';
+    import { goto } from '$app/navigation';
+
     // import './styles.css';
+    async function onSubmit(this: HTMLFormElement) {
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData.entries());
+
+        const LoginSchema = z.object({
+            email: CredentialsSchema.shape.email,
+            password: z.string(),
+        });
+
+        const parsed = LoginSchema.parse(data);
+
+        const passwordHash = await hashSHA256(parsed.password);
+
+        const target = CredentialsSchema.omit({ uid: true }).parse({
+            email: parsed.email,
+            passwordHash,
+        });
+
+        const match = $credentials.filter(
+            (credential) =>
+                credential.email === target.email &&
+                credential.passwordHash === target.passwordHash
+        );
+
+        // Only 1 matching registered user
+        assert(match.length == 1);
+
+        user.update(() => match[0].uid);
+
+        goto('/task-list');
+    }
+
+    $: console.log($user);
 </script>
 
 <div class="app">
@@ -20,12 +61,13 @@
                 </div>
             </div>
             <div class="loginRightContainer">
-                <div class="RightContainerInner">
+                <form class="RightContainerInner" on:submit={onSubmit}>
                     <h1 class="TTCommons-Regular-34">Login</h1>
 
                     <p class="TTCommons-Regular-18">
-                        Don’t have an account? <a class="hyperlink" href="#"
-                            >Create an account here.</a
+                        Don’t have an account? <a
+                            class="hyperlink"
+                            href="/signup">Create an account here.</a
                         >
                     </p>
 
@@ -35,7 +77,7 @@
                         >
                     </div>
                     <div>
-                        <input class="form" type="text" name="email" />
+                        <input class="form" type="text" name="email" required />
                     </div>
                     <br />
 
@@ -45,12 +87,17 @@
                         >
                     </div>
                     <div>
-                        <input class="form" type="text" name="password" />
+                        <input
+                            class="form"
+                            type="text"
+                            name="password"
+                            required
+                        />
                     </div>
                     <br />
 
                     <button class="primary-button" type="submit">Log In</button>
-                </div>
+                </form>
             </div>
         </div>
     </main>
