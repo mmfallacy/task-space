@@ -1,5 +1,7 @@
 <script lang="ts">
     import { assert } from '@/asserts';
+    import { tasks } from '@/stores/task';
+    import { TaskSchema } from '@/types';
 
     let dialog: HTMLDialogElement;
 
@@ -7,13 +9,13 @@
 
     $: if (dialog && showModal) dialog.showModal();
 
-    function onSubmit(e: SubmitEvent) {
-        assert(e.target instanceof HTMLFormElement);
+    function onSubmit(this: HTMLFormElement) {
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData.entries());
 
-        const formData = new FormData(e.target);
-        const task = Object.fromEntries(formData.entries());
+        const task = TaskSchema.omit({ uid: true }).parse(data);
 
-        console.log(task);
+        tasks.add(task);
     }
 </script>
 
@@ -33,13 +35,13 @@
         <form on:submit={onSubmit}>
             <div>
                 <label for="title">Task Title</label>
-                <input type="text" name="title" required />
+                <input type="text" name="name" required />
             </div>
             <br />
 
             <div>
                 <label for="date">Date</label>
-                <input type="date" name="date" />
+                <input type="date" name="deadline" required />
             </div>
             <br />
 
@@ -47,14 +49,20 @@
 
             <div>
                 <label for="name">Category</label>
-                <input type="text" name="category" />
+                <input type="text" name="category" required />
             </div>
 
             <br />
 
             <div>
                 <label for="name">Timesacale</label>
-                <input type="number" name="timescale" />
+                <input
+                    type="number"
+                    name="timescale"
+                    min="1"
+                    max="10"
+                    required
+                />
             </div>
             <br />
 
