@@ -9,7 +9,12 @@
 
 <main>
     <div class="main">
-        <div class="navbar" />
+        <div
+            class="navbar TTCommons-Regular-16"
+            style="font-size:14px; color:white; text-align:right;"
+        >
+            Hello, {$currentUser}
+        </div>
 
         <div class="sidebar">
             <br />
