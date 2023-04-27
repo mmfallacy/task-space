@@ -1,4 +1,7 @@
 <script lang="ts">
+    import { tasks } from '@/stores/task';
+    import Modal from '@/components/CreateTaskModal.svelte';
+    let showModal = false;
 </script>
 
 <main>
@@ -8,7 +11,7 @@
         <div class="sidebar">
             <br />
             <div class="sidebar-header">
-                <button class="plus">
+                <button class="plus" on:click={() => (showModal = !showModal)}>
                     <div class="plusbutton" />
                 </button>
 
@@ -35,8 +38,6 @@
                         <p class="TTCommons-Regular-16" style="color:white">
                             All Tasks
                         </p>
-
-                        <div class="flex-fill" />
 
                         <div class="checkbox-container">
                             <input type="checkbox" />
@@ -214,149 +215,65 @@
                                 <div class="tasklist-row-dropdown" />
                             </div>
 
-                            <div class="tasklist-row-container">
-                                <div class="tasklist-row-tasktitle">
-                                    <div>
-                                        <p
-                                            style="font-family:arial; font-weight: bold;"
-                                        >
-                                            Problem Set 12
-                                        </p>
+                            {#each $tasks as task (task.uid)}
+                                <div
+                                    class="tasklist-row-container"
+                                    on:click={() => tasks.delete(task.uid)}
+                                >
+                                    <div class="tasklist-row-tasktitle">
+                                        <div>
+                                            <p
+                                                style="font-family:arial; font-weight: bold;"
+                                            >
+                                                {task.name}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="tasklist-row-duedate">
-                                    <div>
-                                        <p style="font-family:arial">
-                                            Nov 2, 2022
-                                        </p>
+                                    <div class="tasklist-row-duedate">
+                                        <div>
+                                            <p style="font-family:arial">
+                                                {task.deadline.toString()}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="tasklist-row-category">
-                                    <div class="category-container">
-                                        <div
-                                            class="category-color"
-                                            style="background: rgb(255, 107, 0);"
-                                        />
-                                        <p style="font-family:arial">CS21</p>
+                                    <div class="tasklist-row-category">
+                                        <div class="category-container">
+                                            <div
+                                                class="category-color"
+                                                style="background: rgb(255, 107, 0);"
+                                            />
+                                            <p style="font-family:arial">
+                                                {task.category}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="tasklist-row-status">
-                                    <div>
-                                        <p
-                                            style="font-family:arial; font-weight:bold;  color: #10B981"
-                                        >
-                                            Ongoing
-                                        </p>
+                                    <div class="tasklist-row-status">
+                                        <div>
+                                            <p
+                                                style="font-family:arial; font-weight:bold;  color: #10B981"
+                                            >
+                                                Ongoing
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="tasklist-row-dropdown">
-                                    <div class="dropdown">
-                                        <p />
+                                    <div class="tasklist-row-dropdown">
+                                        <div class="dropdown">
+                                            <p />
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="tasklist-row-container">
-                                <div class="tasklist-row-tasktitle">
-                                    <div>
-                                        <p
-                                            style="font-family:arial; font-weight: bold;"
-                                        >
-                                            Problem Set 13
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="tasklist-row-duedate">
-                                    <div>
-                                        <p style="font-family:arial">
-                                            Nov 2, 2022
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="tasklist-row-category">
-                                    <div class="category-container">
-                                        <div
-                                            class="category-color"
-                                            style="background: rgb(255, 107, 0);"
-                                        />
-                                        <p style="font-family:arial">CS21</p>
-                                    </div>
-                                </div>
-
-                                <div class="tasklist-row-status">
-                                    <div>
-                                        <p
-                                            style="font-family:arial; font-weight:bold;  color: #10B981"
-                                        >
-                                            Ongoing
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="tasklist-row-dropdown">
-                                    <div class="dropdown">
-                                        <p />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="tasklist-row-container">
-                                <div class="tasklist-row-tasktitle">
-                                    <div>
-                                        <p
-                                            style="font-family:arial; font-weight: bold;"
-                                        >
-                                            Problem Set 14
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="tasklist-row-duedate">
-                                    <div>
-                                        <p style="font-family:arial">
-                                            Nov 2, 2022
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="tasklist-row-category">
-                                    <div class="category-container">
-                                        <div
-                                            class="category-color"
-                                            style="background: rgb(255, 107, 0);"
-                                        />
-                                        <p style="font-family:arial">CS21</p>
-                                    </div>
-                                </div>
-
-                                <div class="tasklist-row-status">
-                                    <div>
-                                        <p
-                                            style="font-family:arial; font-weight:bold;  color: #10B981"
-                                        >
-                                            Ongoing
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="tasklist-row-dropdown">
-                                    <div class="dropdown">
-                                        <p />
-                                    </div>
-                                </div>
-                            </div>
+                            {/each}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <Modal {showModal} />
 </main>
 
 <style>
@@ -499,66 +416,11 @@
         padding: 24px;
     }
 
-    .w-100 {
-        width: 100% !important;
-    }
-
-    .flex-column {
-        flex-direction: column !important;
-    }
-
-    .d-flex {
-        display: flex !important;
-    }
-
-    .tasklist-header-left {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .tasklist-header-right {
-        display: flex;
-        gap: 16px;
-        align-items: center;
-    }
-
-    .tasklist-main-container {
-        display: block;
-        padding: 24px 32px 0;
-
-        width: 250px;
-        min-width: 250px;
-        max-width: 250px;
-        height: calc(100vh - 68px);
-        max-height: calc(100vh - 68px);
-        background: #fff;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-        padding: 24px 16px;
-        margin: 10px 10px 10px 55px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .tasklist-header {
-        margin-bottom: 16px;
-    }
-
-    .tasklist-header-container {
-        display: flex;
-        justify-content: space-between;
-    }
-
     .horizontal {
         margin-top: -20px;
         height: 1px;
         width: 100%;
         background: #e2e8f0;
-    }
-
-    .checkbox-child {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
     }
 
     .checkbox-child-title {
@@ -645,63 +507,6 @@
         margin: 10px 10px 10px 55px;
         display: flex;
         flex-direction: column;
-    }
-
-    .modal-footer {
-        background-position: right;
-        border-top: none;
-        border-bottom-left-radius: 8px;
-        border-bottom-right-radius: 8px;
-        display: flex;
-        align-items: right;
-        justify-content: space-between;
-    }
-
-    .primary-button {
-        background-color: #0a5bd0;
-
-        cursor: pointer;
-
-        font-family: Arial;
-        font-weight: 600;
-        border-radius: 5px;
-        box-shadow: none;
-        color: #f8fafc;
-        line-height: 20px;
-        height: 44px;
-
-        border: 1px solid transparent;
-        padding: 0.375rem 0.75rem;
-        font-size: 14px;
-        text-align: center;
-        vertical-align: middle;
-        display: inline-block;
-    }
-
-    .date-time-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 8px;
-    }
-
-    .form {
-        width: 100%;
-        background-color: #e2e8f0;
-        border-radius: 4px;
-        font-family: Arial;
-        padding: 12px 16px;
-        border: 1px solid #e2e8f0;
-        box-sizing: border-box;
-        transition: 0.5s;
-        outline: none;
-    }
-
-    .modal-header {
-        border-bottom: none;
-        width: 100% !important;
-        align-items: center !important;
-        line-height: 250%;
     }
 
     .navbar {
@@ -813,21 +618,6 @@
         font-family: Arial;
         font-size: 20px;
         color: black;
-        letter-spacing: -0.04em;
-    }
-
-    .TTCommons-DemiBold-34 {
-        font-family: Arial;
-        font-weight: bold;
-        font-size: 34px;
-        color: black;
-        letter-spacing: -0.04em;
-    }
-
-    .TTCommons-SemiBold-72 {
-        font-family: Arial;
-        font-size: 72px;
-        color: #04285c;
         letter-spacing: -0.04em;
     }
 </style>

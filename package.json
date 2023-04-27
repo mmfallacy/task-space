@@ -36,6 +36,7 @@
     },
     "type": "module",
     "dependencies": {
-        "svelte-modals": "^1.2.1"
+        "svelte-modals": "^1.2.1",
+        "zod": "^3.21.4"
     }
 }
