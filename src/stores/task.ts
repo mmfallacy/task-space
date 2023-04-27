@@ -1,4 +1,4 @@
-import type { Task } from '@/types';
+import type { TaskType } from '@/types';
 import { persistent } from './persistent';
 
 /**
@@ -6,15 +6,15 @@ import { persistent } from './persistent';
  * TODO: relax assumption that task store contains an array of tasks for one user
  */
 function createTaskStore() {
-    const { update, subscribe } = persistent<Task[]>('task-store', []);
+    const { update, subscribe } = persistent<TaskType[]>('task-store', []);
 
     return {
-        add: (task: Omit<Task, 'uid'>) =>
+        add: (task: Omit<TaskType, 'uid'>) =>
             update((tasks) => [
                 ...tasks,
                 { uid: crypto.randomUUID(), ...task },
             ]),
-        delete: (uid: Task['uid']) =>
+        delete: (uid: TaskType['uid']) =>
             update((tasks) => tasks.filter((task) => task.uid != uid)),
         subscribe,
     };
