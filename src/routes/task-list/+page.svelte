@@ -1,7 +1,10 @@
 <script lang="ts">
     import { tasks } from '@/stores/task';
     import Modal from '@/components/CreateTaskModal.svelte';
+    import { currentUser } from '@/stores/currentUser';
     let showModal = false;
+
+    console.log($currentUser);
 </script>
 
 <main>
