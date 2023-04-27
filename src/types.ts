@@ -38,3 +38,5 @@ export const CredentialsSchema = z.object({
     email: z.string(),
     passwordHash: z.string(),
 });
+
+export type CredentialsType = z.infer<typeof CredentialsSchema>;
