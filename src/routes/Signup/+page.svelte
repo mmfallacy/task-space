@@ -1,5 +1,29 @@
-<script>
+<script lang="ts">
+    import { credentials } from '@/stores/credentials';
+    import { CredentialsSchema } from '@/types';
+    import { hashSHA256 } from '@/utils';
+    import { z } from 'zod';
+
     // import './styles.css';
+    async function onSubmit(this: HTMLFormElement) {
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData.entries());
+
+        const SignUpSchema = z.object({
+            firstname: z.string(),
+            lastname: z.string(),
+            email: z.string(),
+            password: z.string(),
+        });
+
+        const parsed = SignUpSchema.parse(data);
+        const processed = {
+            email: parsed.email,
+            passwordHash: await hashSHA256(parsed.password),
+        };
+
+        credentials.add(CredentialsSchema.omit({ uid: true }).parse(processed));
+    }
 </script>
 
 <div class="app">
@@ -20,11 +44,14 @@
                 </div>
             </div>
             <div class="loginRightContainer">
-                <div class="RightContainerInner">
+                <form
+                    class="RightContainerInner"
+                    on:submit|preventDefault={onSubmit}
+                >
                     <h1 class="TTCommons-Regular-34">Sign Up</h1>
 
                     <p class="TTCommons-Regular-18">
-                        Already have an account? <a class="hyperlink" href="#"
+                        Already have an account? <a class="hyperlink" href="/"
                             >Login here.</a
                         >
                     </p>
@@ -41,7 +68,7 @@
                                     class="form"
                                     style="width:100%"
                                     type="text"
-                                    name="email"
+                                    name="firstname"
                                 />
                             </div>
                         </div>
@@ -57,7 +84,7 @@
                                     class="form"
                                     style="width:100%"
                                     type="text"
-                                    name="email"
+                                    name="lastname"
                                 />
                             </div>
                         </div>
@@ -85,7 +112,7 @@
                     <br />
 
                     <button class="primary-button" type="submit">Log In</button>
-                </div>
+                </form>
             </div>
         </div>
     </main>
