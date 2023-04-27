@@ -1,12 +1,20 @@
 <script lang="ts">
     import { tasks } from '@/stores/task';
     import Modal from '@/components/CreateTaskModal.svelte';
+    import { currentUser } from '@/stores/currentUser';
     let showModal = false;
+
+    console.log($currentUser);
 </script>
 
 <main>
     <div class="main">
-        <div class="navbar" />
+        <div
+            class="navbar TTCommons-Regular-16"
+            style="font-size:14px; color:white; text-align:right;"
+        >
+            Hello, {$currentUser}
+        </div>
 
         <div class="sidebar">
             <br />

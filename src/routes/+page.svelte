@@ -1,60 +1,115 @@
-<script>
-    // import './styles.css';
+<script lang="ts">
+    import { CredentialsSchema } from '@/types';
+    import { hashSHA256 } from '@/utils';
+    import { credentials } from '@/stores/credentials';
+    import { assert } from '@/asserts';
+    import { z } from 'zod';
+    import { goto } from '$app/navigation';
+    import { currentUser } from '@/stores/currentUser';
+
+    async function onSubmit(this: HTMLFormElement) {
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData.entries());
+
+        const LoginSchema = z.object({
+            email: CredentialsSchema.shape.email,
+            password: z.string(),
+        });
+
+        const parsed = LoginSchema.parse(data);
+
+        const passwordHash = await hashSHA256(parsed.password);
+
+        const target = CredentialsSchema.omit({ uid: true }).parse({
+            email: parsed.email,
+            passwordHash,
+        });
+
+        const match = $credentials.filter(
+            (credential) =>
+                credential.email === target.email &&
+                credential.passwordHash === target.passwordHash
+        );
+
+        // Only 1 matching registered user
+        assert(match.length == 1);
+
+        currentUser.update(() => match[0].uid);
+
+        goto('/task-list');
+    }
+
+    if ($currentUser != null) goto('/task-list');
 </script>
 
-<div class="app">
-    <main>
-        <div class="body">
-            <div class="body-left">
-                <div class="loginLeftContainer">
-                    <div class="title">
-                        <p class="TTCommons-SemiBold-72">Task Space</p>
-                        <p class="TTCommons-Regular-20">
-                            A safe space to help students plan and perform
-                            academic tasks with ease
+{#if $currentUser == null}
+    <div class="app">
+        <main>
+            <div class="body">
+                <div class="body-left">
+                    <div class="loginLeftContainer">
+                        <div class="title">
+                            <p class="TTCommons-SemiBold-72">Task Space</p>
+                            <p class="TTCommons-Regular-20">
+                                A safe space to help students plan and perform
+                                academic tasks with ease
+                            </p>
+                        </div>
+                        <div>
+                            <div class="bannerImage" />
+                        </div>
+                    </div>
+                </div>
+                <div class="loginRightContainer">
+                    <form class="RightContainerInner" on:submit={onSubmit}>
+                        <h1 class="TTCommons-Regular-34">Login</h1>
+
+                        <p class="TTCommons-Regular-18">
+                            Don’t have an account? <a
+                                class="hyperlink"
+                                href="/signup">Create an account here.</a
+                            >
                         </p>
-                    </div>
-                    <div>
-                        <div class="bannerImage" />
-                    </div>
+
+                        <div style="margin: 0px 0px 8px 0px;">
+                            <label class="TTCommons-Regular-16" for="name"
+                                >Email</label
+                            >
+                        </div>
+                        <div>
+                            <input
+                                class="form"
+                                type="text"
+                                name="email"
+                                required
+                            />
+                        </div>
+                        <br />
+
+                        <div style="margin: 0px 0px 8px 0px;">
+                            <label class="TTCommons-Regular-16" for="name"
+                                >Password</label
+                            >
+                        </div>
+                        <div>
+                            <input
+                                class="form"
+                                type="text"
+                                name="password"
+                                required
+                            />
+                        </div>
+                        <br />
+
+                        <button class="primary-button" type="submit"
+                            >Log In</button
+                        >
+                    </form>
                 </div>
             </div>
-            <div class="loginRightContainer">
-                <div class="RightContainerInner">
-                    <h1 class="TTCommons-Regular-34">Login</h1>
-
-                    <p class="TTCommons-Regular-18">
-                        Don’t have an account? <a class="hyperlink" href="#"
-                            >Create an account here.</a
-                        >
-                    </p>
-
-                    <div style="margin: 0px 0px 8px 0px;">
-                        <label class="TTCommons-Regular-16" for="name"
-                            >Email</label
-                        >
-                    </div>
-                    <div>
-                        <input class="form" type="text" name="email" />
-                    </div>
-                    <br />
-
-                    <div style="margin: 0px 0px 8px 0px;">
-                        <label class="TTCommons-Regular-16" for="name"
-                            >Password</label
-                        >
-                    </div>
-                    <div>
-                        <input class="form" type="text" name="password" />
-                    </div>
-                    <br />
-
-                    <button class="primary-button" type="submit">Log In</button>
-                </div>
-            </div>
-        </div>
-    </main>
-</div>
+        </main>
+    </div>
+{/if}
 
 <style>
     .hyperlink {

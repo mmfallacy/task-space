@@ -32,3 +32,11 @@ export const UserSchema = z.object({
 });
 
 export type UserType = z.infer<typeof UserSchema>;
+
+export const CredentialsSchema = z.object({
+    uid: UserSchema.shape.uid,
+    email: z.string(),
+    passwordHash: z.string(),
+});
+
+export type CredentialsType = z.infer<typeof CredentialsSchema>;
