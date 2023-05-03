@@ -1,12 +1,14 @@
 <script lang="ts">
+    import CalendarView from '@/components/CalendarView.svelte';
 </script>
 
-<div style="position:relative;">
+<div>
     <div class="navbar" />
     <div class="sidebar" />
     <main class="content">
         <section class="controls">
             <h3>Calendar</h3>
+            <CalendarView />
         </section>
     </main>
 </div>
@@ -14,6 +16,8 @@
 <style>
     .navbar {
         background: #156ef0;
+        width: 100dvw;
+        height: 24px;
     }
 
     .sidebar {
