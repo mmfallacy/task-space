@@ -1,4 +1,11 @@
 import { assert } from './asserts';
+import {
+    startOfMonth,
+    endOfMonth,
+    startOfWeek,
+    endOfWeek,
+    eachDayOfInterval,
+} from 'date-fns';
 
 export async function hashSHA256(str: string) {
     const utf8 = new TextEncoder().encode(str);
@@ -21,4 +28,17 @@ export function range(start: number, exclusiveEnd: number) {
 
 export function rangeTill(offset: number, limit: number) {
     return range(offset, offset + limit);
+}
+
+export function getCalendarDaysOfMonth(current: Date) {
+    const monthStart = startOfMonth(current);
+    const monthEnd = endOfMonth(current);
+
+    const weekStartOfMonthStart = startOfWeek(monthStart);
+    const weekEndOfMonthEnd = endOfWeek(monthEnd);
+
+    return eachDayOfInterval({
+        start: weekStartOfMonthStart,
+        end: weekEndOfMonthEnd,
+    });
 }

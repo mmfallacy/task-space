@@ -1,24 +1,8 @@
 <script lang="ts">
-    import {
-        startOfMonth,
-        endOfMonth,
-        startOfWeek,
-        endOfWeek,
-        eachDayOfInterval,
-        format,
-    } from 'date-fns';
-    let current = new Date();
+    import { getCalendarDaysOfMonth } from '@/utils';
+    import { format } from 'date-fns';
 
-    let monthStart = startOfMonth(current);
-    let monthEnd = endOfMonth(current);
-
-    let weekStartOfMonthStart = startOfWeek(monthStart);
-    let weekEndOfMonthEnd = endOfWeek(monthEnd);
-
-    let days = eachDayOfInterval({
-        start: weekStartOfMonthStart,
-        end: weekEndOfMonthEnd,
-    });
+    let days = getCalendarDaysOfMonth(new Date());
 </script>
 
 <main>
