@@ -1,5 +1,5 @@
 <script lang="ts">
-    import CalendarView from '@/components/CalendarView.svelte';
+    import CalendarView from '@/components/Calendar/View.svelte';
 </script>
 
 <div>
