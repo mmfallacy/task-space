@@ -9,10 +9,12 @@
 </script>
 
 <div class={clsx(variant, 'item', tasks.length > 0 && 'has-task')}>
-    {format(date, 'd')}
-    {#each tasks as task}
-        <p>T:{task.name}</p>
-    {/each}
+    <span><header>{format(date, 'd')}</header></span>
+    <div class="list">
+        {#each tasks as task}
+            <p>T:{task.name}</p>
+        {/each}
+    </div>
 </div>
 
 <style>
@@ -23,6 +25,8 @@
 
         background: #f1f5f9;
         border: 0.5px solid #cbd5e1;
+        display: flex;
+        flex-direction: column;
     }
     .inactive {
         color: #e2e8f0;
@@ -33,7 +37,36 @@
     .has-task {
         background: #f8fafc;
     }
-    .today {
+
+    .item span {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        display: flex;
+        flex-direction: row-reverse;
+
+        padding: 4px;
+    }
+    .today header {
+        padding: 4px 8px;
         background: #156ef0;
+        border-radius: 8px;
+        color: white;
+    }
+
+    .item .list {
+        max-height: 10svh;
+
+        padding: 8px;
+        padding-top: 0;
+
+        overflow-x: hidden;
+        overflow-y: scroll;
+        -ms-overflow-style: none; /* Internet Explorer 10+ */
+        scrollbar-width: none; /* Firefox */
+    }
+
+    .item .list::-webkit-scrollbar {
+        display: none; /* Safari and Chrome */
     }
 </style>
