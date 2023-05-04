@@ -1,35 +1,49 @@
 <script lang="ts">
     import CalendarView from '@/components/Calendar/View.svelte';
+    import Layout from '@/routes/layout.svelte';
+    import { today } from '@/utils';
+    import { addMonths } from 'date-fns';
+
+    let current = today();
 </script>
 
-<div>
-    <div class="navbar" />
-    <div class="sidebar" />
-    <main class="content">
+<Layout>
+    <div class="wrapper">
         <section class="controls">
             <h3>Calendar</h3>
-            <CalendarView />
+            <button on:click={() => (current = addMonths(current, -1))}>
+                Prev
+            </button>
+            <button on:click={() => (current = addMonths(current, 1))}>
+                Next
+            </button>
         </section>
-    </main>
-</div>
+        <section class="view">
+            <header>
+                <h3>November</h3>
+                <button> Today </button>
+            </header>
+            <CalendarView {current} />
+        </section>
+    </div>
+</Layout>
 
 <style>
-    .navbar {
-        background: #156ef0;
-        width: 100dvw;
-        height: 24px;
+    .wrapper {
+        display: flex;
+        height: 100%;
+        width: 100%;
     }
-
-    .sidebar {
-        background: white;
-        width: 64px;
-        box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.1);
-
-        margin: 10px -8px;
-        padding: 0px;
+    .controls {
+        width: 320px;
     }
-
-    .content {
-        padding-left: 64px;
+    .view {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .view header {
+        width: 100%;
     }
 </style>

@@ -1,10 +1,10 @@
 <script lang="ts">
-    import { getCalendarDaysOfMonth, today } from '@/utils';
-    import { addMonths, isSameDay, isSameMonth, isToday } from 'date-fns';
+    import { getCalendarDaysOfMonth } from '@/utils';
+    import { isSameDay, isSameMonth, isToday } from 'date-fns';
     import ViewItem from './ViewItem.svelte';
     import { tasks } from '@/stores/task';
 
-    let current = today();
+    export let current: Date;
     $: days = getCalendarDaysOfMonth(current);
 
     console.log(
@@ -23,37 +23,23 @@
     }
 </script>
 
-<main>
-    <div class="grid">
-        {#each days as day}
-            <ViewItem
-                date={day}
-                variant={getVariant(day, current)}
-                tasks={$tasks.filter((task) => isSameDay(task.deadline, day))}
-            />
-        {/each}
-    </div>
-
-    <button
-        on:click={() => {
-            current = addMonths(current, -1);
-        }}>&lt;</button
-    >
-
-    <button
-        on:click={() => {
-            current = addMonths(current, 1);
-        }}>&gt;</button
-    >
-</main>
+<div class="grid view">
+    {#each days as day}
+        <ViewItem
+            date={day}
+            variant={getVariant(day, current)}
+            tasks={$tasks.filter((task) => isSameDay(task.deadline, day))}
+        />
+    {/each}
+</div>
 
 <style>
-    main {
-        max-width: 500px;
-        word-wrap: break-word;
-    }
     .grid {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+    }
+    .view {
+        flex: 1;
     }
 </style>
