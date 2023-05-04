@@ -1,12 +1,12 @@
 <script>
-    import { flip } from "svelte/animate";
-    import { fly } from "svelte/transition";
-    import { notifications } from "./notifications.js";
+    import { flip } from 'svelte/animate';
+    import { fly } from 'svelte/transition';
+    import { notifications } from './notifications.js';
 
     export let themes = {
-        email: "#EE6B6E",
-        password: "#EE6B6E",
-        registered: "#FF904F"
+        email: '#EE6B6E',
+        password: '#EE6B6E',
+        registered: '#FF904F',
     };
 </script>
 
