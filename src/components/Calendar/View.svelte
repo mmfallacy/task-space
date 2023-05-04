@@ -44,7 +44,7 @@
     .grid {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
-        grid-template-rows: 24px repeat(6, 1fr);
+        grid-template-rows: auto repeat(6, 1fr);
     }
     .view {
         flex: 1;
@@ -56,5 +56,11 @@
         align-items: center;
         justify-items: end;
         grid-template-columns: repeat(7, 1fr);
+
+        background: #f8fafc;
+        border: 0.5px solid #cbd5e1;
+    }
+    .view header h3 {
+        padding: 8px 16px;
     }
 </style>
