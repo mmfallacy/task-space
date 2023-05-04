@@ -16,6 +16,9 @@
 
         height: 100svh;
         width: 100svw;
+
+        font-family: Arial, Helvetica, sans-serif;
+        color: #475569;
     }
     .grid .navbar {
         grid-column: span 2;
