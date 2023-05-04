@@ -42,3 +42,7 @@ export function getCalendarDaysOfMonth(current: Date) {
         end: weekEndOfMonthEnd,
     });
 }
+
+export function today() {
+    return new Date();
+}
