@@ -1,74 +1,32 @@
-<script lang="ts">
-    import { tasks } from '@/stores/task';
-    import { TaskSchema } from '@/types';
+<script>
+	export let showModal; // boolean
 
-    let dialog: HTMLDialogElement;
+	let dialog; // HTMLDialogElement
 
-    export let showModal: boolean;
-
-    $: if (dialog && showModal) dialog.showModal();
-
-    function onSubmit(this: HTMLFormElement) {
-        const formData = new FormData(this);
-        const data = Object.fromEntries(formData.entries());
-
-        const task = TaskSchema.omit({ uid: true }).parse(data);
-
-        tasks.add(task);
-    }
+	$: if (dialog && showModal) dialog.showModal();
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<main>
-    <dialog
-        bind:this={dialog}
-        on:close={() => (showModal = false)}
-        on:click|self={() => dialog.close()}
-    >
-        <h2>
-            <b>Create a task</b>
-            <p>An organized task schedule is key to success!</p>
-            <hr />
-        </h2>
-
-        <form on:submit={onSubmit}>
-            <div>
-                <label for="title">Task Title</label>
-                <input type="text" name="name" required />
-            </div>
-            <br />
-
-            <div>
-                <label for="date">Date</label>
-                <input type="date" name="deadline" required />
-            </div>
-            <br />
-
-            <br />
-
-            <div>
-                <label for="name">Category</label>
-                <input type="text" name="category" required />
-            </div>
-
-            <br />
-
-            <div>
-                <label for="name">Timesacale</label>
-                <input
-                    type="number"
-                    name="timescale"
-                    min="1"
-                    max="10"
-                    required
-                />
-            </div>
-            <br />
-
-            <button type="submit">Continue</button>
-        </form>
-    </dialog>
-</main>
+<dialog
+	bind:this={dialog}
+	on:close={() => (showModal = false)}
+	on:click|self={() => dialog.close()}
+>
+	<div class="modal" on:click|stopPropagation>
+		<slot name="header" />
+		<slot />
+		<!-- svelte-ignore a11y-autofocus -->
+	</div>
+</dialog>
 
 <style>
+dialog{
+	border: none;
+    border-radius: 8px;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,.05);
+}
+
+.modal{
+	display: block!important;
+}
 </style>
