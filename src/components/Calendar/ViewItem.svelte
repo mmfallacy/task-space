@@ -10,11 +10,14 @@
 
 <div class={clsx(variant, 'item', tasks.length > 0 && 'has-task')}>
     <span><header>{format(date, 'd')}</header></span>
-    <div class="list">
+    <ul class="list">
         {#each tasks as task}
-            <p>T:{task.name}</p>
+            <li>
+                <ul class={clsx('dot')} style="--color: blue;" />
+                {task.name}
+            </li>
         {/each}
-    </div>
+    </ul>
 </div>
 
 <style>
@@ -38,7 +41,7 @@
         background: #f8fafc;
     }
 
-    .item span {
+    .item > span {
         font-weight: 600;
         font-size: 16px;
         line-height: 20px;
@@ -68,5 +71,25 @@
 
     .item .list::-webkit-scrollbar {
         display: none; /* Safari and Chrome */
+    }
+
+    .item li {
+        display: flex;
+        align-items: center;
+    }
+
+    .dot {
+        height: 8px;
+        width: 8px;
+
+        border-radius: 16px;
+        border: 1px solid transparent;
+        border-color: var(--color);
+
+        margin-right: 4px;
+    }
+
+    .dot.fill {
+        background: var(--color);
     }
 </style>
