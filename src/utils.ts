@@ -5,6 +5,7 @@ import {
     startOfWeek,
     endOfWeek,
     eachDayOfInterval,
+    addWeeks,
 } from 'date-fns';
 
 export async function hashSHA256(str: string) {
@@ -32,14 +33,13 @@ export function rangeTill(offset: number, limit: number) {
 
 export function getCalendarDaysOfMonth(current: Date) {
     const monthStart = startOfMonth(current);
-    const monthEnd = endOfMonth(current);
 
     const weekStartOfMonthStart = startOfWeek(monthStart);
-    const weekEndOfMonthEnd = endOfWeek(monthEnd);
+    const seventhWeekEnd = endOfWeek(addWeeks(monthStart, 5));
 
     return eachDayOfInterval({
         start: weekStartOfMonthStart,
-        end: weekEndOfMonthEnd,
+        end: seventhWeekEnd,
     });
 }
 
