@@ -21,9 +21,16 @@
 
         return 'inactive';
     }
+
+    const LABELS = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 </script>
 
 <div class="grid view">
+    <header>
+        {#each LABELS as label}
+            <h3>{label}</h3>
+        {/each}
+    </header>
     {#each days as day}
         <ViewItem
             date={day}
@@ -37,9 +44,17 @@
     .grid {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
-        grid-template-rows: repeat(6, 1fr);
+        grid-template-rows: 24px repeat(6, 1fr);
     }
     .view {
         flex: 1;
+    }
+
+    .view header {
+        grid-column: 1/-1;
+        display: grid;
+        align-items: center;
+        justify-items: end;
+        grid-template-columns: repeat(7, 1fr);
     }
 </style>
