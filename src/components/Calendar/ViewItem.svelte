@@ -8,7 +8,7 @@
     export let tasks: TaskType[];
 </script>
 
-<div class={clsx(variant, 'item')}>
+<div class={clsx(variant, 'item', tasks.length > 0 && 'has-task')}>
     {format(date, 'd')}
     {#each tasks as task}
         <p>T:{task.name}</p>
@@ -20,14 +20,20 @@
         height: 100%;
         width: 100%;
         border: 1px solid red;
+
+        background: #f1f5f9;
+        border: 0.5px solid #cbd5e1;
     }
     .inactive {
-        background: darkgray;
+        color: #e2e8f0;
     }
     .active {
-        background: white;
+        color: currentColor;
+    }
+    .has-task {
+        background: #f8fafc;
     }
     .today {
-        background: lightblue;
+        background: #156ef0;
     }
 </style>
