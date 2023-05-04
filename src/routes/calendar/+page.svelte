@@ -21,7 +21,7 @@
         <section class="view">
             <header>
                 <h3>November</h3>
-                <button> Today </button>
+                <button on:click={() => (current = today())}> Today </button>
             </header>
             <CalendarView {current} />
         </section>
