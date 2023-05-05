@@ -61,7 +61,6 @@
     <br />
   
     <!-- Date and Time -->
-    <div class="date-time-wrapper">
       <div class="date">
         <div style="margin: 0px 0px 8px 0px;">
           <label class="TTCommons-Regular-16" for="name">Date</label>
@@ -69,35 +68,12 @@
         <div>
           <input
             class="form"
-            style="width:fit-content"
             type="date"
             id="date"
             name="date"
           />
         </div>
       </div>
-  
-      <div class="time">
-        <div style="margin: 0px 0px 8px 0px;">
-          <label class="TTCommons-Regular-16" for="name">Timeslot</label>
-        </div>
-        <div>
-          <input
-            class="form"
-            style="width:fit-content"
-            type="time"
-            name="startTime"
-          />
-          <nobr>-</nobr>
-          <input
-            class="form"
-            style="width:fit-content"
-            type="time"
-            name="endTime"
-          />
-        </div>
-    </div>
-</div>
 <br />
 
 <!-- Category -->
@@ -115,12 +91,19 @@
 </div>
 <br />
 
-<!-- Notes -->
+<!-- TimeScale -->
 <div style="margin: 0px 0px 8px 0px;">
-  <label class="TTCommons-Regular-16" for="name">Notes</label>
+  <label class="TTCommons-Regular-16" for="name">TimeScale</label>
 </div>
 <div>
-  <input class="form" type="text" name="notes" />
+    <input
+    class="form"
+    type="number"
+    name="timescale"
+    min="1"
+    max="10"
+    required
+  />
 </div>
 <br />
 
