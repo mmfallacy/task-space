@@ -3,7 +3,7 @@
     import Modal from '@/components/CreateTaskModal.svelte';
     import { currentUser } from '@/stores/currentUser';
     import Dropdown from '@/components/Dropdown.svelte';
-    
+
     let showModal = false;
 
     console.log($currentUser);
@@ -222,8 +222,7 @@
                                     </div>
                                 </div>
 
-                                <div class="tasklist-row-dropdown">
-                                </div>
+                                <div class="tasklist-row-dropdown" />
                             </div>
 
                             {#each $tasks as task (task.uid)}
@@ -269,7 +268,7 @@
                                     </div>
 
                                     <div class="tasklist-row-dropdown">
-                                            <Dropdown />
+                                        <Dropdown />
                                     </div>
                                 </div>
                             {/each}
@@ -283,7 +282,6 @@
 </main>
 
 <style>
-
     .tasklist-header-status {
         flex: 1 1 170px;
         min-width: 170px;
