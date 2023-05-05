@@ -9,7 +9,6 @@
     ];
 
     let selected;
-    let ans = '';
 
     function isFormValid(data) {
         if (!isRequiredFieldValid(data.tasktitle)) {
