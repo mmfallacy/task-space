@@ -1,7 +1,5 @@
 <script lang="ts">
-    import Modal from '@/components/CreateTaskModal-OLD.svelte';
     import { tasks } from '@/stores/task';
-    import { hashSHA256 } from '@/utils';
     // This code snippet adds a new task with given task properties.
     tasks.add({
         name: 'Task test',
