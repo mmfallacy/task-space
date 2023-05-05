@@ -8,7 +8,7 @@
         { id: 2, text: 'CS 192' },
     ];
 
-    let selected;
+    let ans = '';
 
     function isFormValid(data) {
         if (!isRequiredFieldValid(data.tasktitle)) {
@@ -78,11 +78,11 @@
         <select
             required
             class="form"
-            value={selected}
+            bind:value={ans}
             on:change={() => (ans = '')}
         >
             {#each cat as c}
-                <option value={c}>
+                <option value={c.id}>
                     {c.text}
                 </option>
             {/each}
