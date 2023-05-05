@@ -1,24 +1,23 @@
 <script lang="ts">
-    import { tasks } from '@/stores/task';
     import Modal from '@/components/CreateTaskModal.svelte';
     import { currentUser } from '@/stores/currentUser';
     import Resources from '@/components/Resources.svelte';
 
     const resources = [
-      {
-        title: "10-minute meditation for anxiety",
-        items: [
-          "This easy 10-minute meditation is the perfect way to start your day off right. Written and Narrated by John Davisi. John is a mindfulness life coach and speaker. Check out his other mindfulness and meditation sessions at https://www.youtube.com/c/johndavisi",
-        ],
-        tags: ["Meditation"],
-      },
-      {
-        title: "10-minute meditation for anxiety",
-        items: [
-          "This easy 10-minute meditation is the perfect way to start your day off right. Written and Narrated by John Davisi. John is a mindfulness life coach and speaker. Check out his other mindfulness and meditation sessions at https://www.youtube.com/c/johndavisi",
-        ],
-        tags: ["Meditation"],
-      }
+        {
+            title: '10-minute meditation for anxiety',
+            items: [
+                'This easy 10-minute meditation is the perfect way to start your day off right. Written and Narrated by John Davisi. John is a mindfulness life coach and speaker. Check out his other mindfulness and meditation sessions at https://www.youtube.com/c/johndavisi',
+            ],
+            tags: ['Meditation'],
+        },
+        {
+            title: '10-minute meditation for anxiety',
+            items: [
+                'This easy 10-minute meditation is the perfect way to start your day off right. Written and Narrated by John Davisi. John is a mindfulness life coach and speaker. Check out his other mindfulness and meditation sessions at https://www.youtube.com/c/johndavisi',
+            ],
+            tags: ['Meditation'],
+        },
     ];
 
     let showModal = false;
@@ -181,37 +180,47 @@
             <div class="right">
                 <div class="resources-header">
                     <h1 style="font-family: arial;">Resources</h1>
-                  </div>
-                  
-                  <div class="spacer"></div>
-                
-                <div class=resources-wrapper>
+                </div>
+
+                <div class="spacer" />
+
+                <div class="resources-wrapper">
                     <div class="resources-row-mental">
                         <div class="resources-row-contents">
                             <div class="resources-row-contents-container">
-    
-                                <div class="mental-hotline"></div>
-    
+                                <div class="mental-hotline" />
+
                                 <div class="resource-information">
                                     <div class="resource-information-container">
-                                        <p class="TTCommons-Bold-16">Need help? Here are mental health hotlines!</p>
-                                        <p class="para-spacer"></p>
-                                        <p class="TTCommons-Regular-16">09XXXXXXXXX — Philippine Mental Health Association</p>
-                                        <p class="TTCommons-Regular-16">09XXXXXXXXX — 24/7 Mental Health Hotline</p>
-                                        <p class="TTCommons-Regular-16">email@gmail.com — Better Health</p>
-                                        <p class="TTCommons-Regular-16">email@gmail.com — PsychServe</p>
+                                        <p class="TTCommons-Bold-16">
+                                            Need help? Here are mental health
+                                            hotlines!
+                                        </p>
+                                        <p class="para-spacer" />
+                                        <p class="TTCommons-Regular-16">
+                                            09XXXXXXXXX — Philippine Mental
+                                            Health Association
+                                        </p>
+                                        <p class="TTCommons-Regular-16">
+                                            09XXXXXXXXX — 24/7 Mental Health
+                                            Hotline
+                                        </p>
+                                        <p class="TTCommons-Regular-16">
+                                            email@gmail.com — Better Health
+                                        </p>
+                                        <p class="TTCommons-Regular-16">
+                                            email@gmail.com — PsychServe
+                                        </p>
                                     </div>
                                 </div>
-    
-                                <div class="pin"></div>
+
+                                <div class="pin" />
                             </div>
-                            
                         </div>
                     </div>
-    
+
                     <Resources {resources} />
                 </div>
-                
             </div>
         </div>
     </div>
@@ -229,7 +238,7 @@
         white-space: nowrap;
         font-size: 16px;
         line-height: 20px;
-        color: #1E293B;
+        color: #1e293b;
     }
 
     .tag {
@@ -242,7 +251,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: #E2E8F0;
+        background-color: #e2e8f0;
         border-radius: 26px;
         min-height: 18px;
 
@@ -302,13 +311,12 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        box-shadow: 0 1px 3px rgba(0,0,0,.1);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
         height: 56px;
         background-color: #fff;
 
         padding: 12px 32px;
-        
     }
 
     .spacer {
@@ -328,7 +336,7 @@
 
     .resources-row-mental {
         width: calc(100% - 10px);
-        background: #ECFDF5;
+        background: #ecfdf5;
         box-shadow: 0px 25px 25px -12px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
     }
@@ -354,7 +362,7 @@
     }
 
     .right {
-        background-color: #F1F5F9;
+        background-color: #f1f5f9;
         overflow: hidden auto;
 
         display: flex;
