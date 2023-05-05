@@ -2,6 +2,8 @@
     import { tasks } from '@/stores/task';
     import Modal from '@/components/CreateTaskModal.svelte';
     import { currentUser } from '@/stores/currentUser';
+    import Dropdown from '@/components/Dropdown.svelte';
+    
     let showModal = false;
 
     console.log($currentUser);
@@ -220,14 +222,12 @@
                                     </div>
                                 </div>
 
-                                <div class="tasklist-row-dropdown" />
+                                <div class="tasklist-row-dropdown">
+                                </div>
                             </div>
 
                             {#each $tasks as task (task.uid)}
-                                <div
-                                    class="tasklist-row-container"
-                                    on:click={() => tasks.delete(task.uid)}
-                                >
+                                <div class="tasklist-row-container">
                                     <div class="tasklist-row-tasktitle">
                                         <div>
                                             <p
@@ -269,9 +269,7 @@
                                     </div>
 
                                     <div class="tasklist-row-dropdown">
-                                        <div class="dropdown">
-                                            <p />
-                                        </div>
+                                            <Dropdown />
                                     </div>
                                 </div>
                             {/each}
@@ -285,6 +283,7 @@
 </main>
 
 <style>
+
     .tasklist-header-status {
         flex: 1 1 170px;
         min-width: 170px;
@@ -313,18 +312,6 @@
         padding: 8px 16px;
         background-color: var(--gray-100);
         border-radius: 5px;
-    }
-
-    .dropdown {
-        background-image: url(Dropdown.png);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 24px;
-        margin: 10px;
-        padding: 10px;
-
-        border: none;
-        cursor: pointer;
     }
 
     .tasklist-row-dropdown {

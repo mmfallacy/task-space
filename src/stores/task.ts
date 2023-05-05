@@ -14,8 +14,10 @@ function createTaskStore() {
                 ...tasks,
                 { uid: crypto.randomUUID(), ...task },
             ]),
+        /*
         delete: (uid: TaskType['uid']) =>
             update((tasks) => tasks.filter((task) => task.uid != uid)),
+        */
         subscribe,
     };
 }
