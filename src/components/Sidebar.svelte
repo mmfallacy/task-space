@@ -1,54 +1,54 @@
 <script>
-  import { createEventDispatcher } from "svelte";
-  const dispatch = createEventDispatcher();
+    import { createEventDispatcher } from 'svelte';
+    const dispatch = createEventDispatcher();
 
-  function toggleModal() {
-    dispatch("toggleModal");
-  }
+    function toggleModal() {
+        dispatch('toggleModal');
+    }
 </script>
 
 <aside class="sidebar">
-  <div class="sidebar-header">
-    <button class="plus" on:click="{toggleModal}">
-      <div class="plusbutton" />
-    </button>
+    <div class="sidebar-header">
+        <button class="plus" on:click={toggleModal}>
+            <div class="plusbutton" />
+        </button>
 
-          <button class="line" style="width: 50px;" />
+        <button class="line" style="width: 50px;" />
 
-          <button class="not-selected">
-              <div class="homebutton" />
-          </button>
+        <button class="not-selected">
+            <div class="homebutton" />
+        </button>
 
-          <button class="selected">
-              <div class="taskbutton" />
-          </button>
+        <button class="selected">
+            <div class="taskbutton" />
+        </button>
     </div>
-  </aside>
-  
-  <style>
+</aside>
+
+<style>
     .sidebar {
-      position: absolute;
-      background: white;
-      height: calc(100vh - 68px);
-      width: 64px;
-      min-width: 64px;
-      box-shadow: 0px 25px 50px -12px rgba(0,0,0,.1);
-      margin: 20px -8px;
-      padding: 0px;
+        position: absolute;
+        background: white;
+        height: calc(100vh - 68px);
+        width: 64px;
+        min-width: 64px;
+        box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.1);
+        margin: 20px -8px;
+        padding: 0px;
     }
-  
+
     .sidebar-header {
-      padding: 0px 0px 0px 5px;
-      border-bottom: none;
+        padding: 0px 0px 0px 5px;
+        border-bottom: none;
     }
-  
+
     .plus {
-      cursor: pointer;
-      background: #156EF0;
-      border-radius: 8px;
-      border: none;
+        cursor: pointer;
+        background: #156ef0;
+        border-radius: 8px;
+        border: none;
     }
-  
+
     .plusbutton {
         background-image: url('icons/PlusButton.png');
 
@@ -108,5 +108,4 @@
         border-radius: 8px;
         border: none;
     }
-  </style>
-  
+</style>
