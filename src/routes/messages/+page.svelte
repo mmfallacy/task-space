@@ -1,6 +1,6 @@
 <script>
     import { notifications } from '@/stores/notifications.js';
-    import Toast from './Toast.svelte';
+    import Toasts from '@/components/Toasts.svelte';
 </script>
 
 <button on:click={() => notifications.email('Invalid Credentials!', 3000)}>
@@ -14,4 +14,4 @@
 >
     Registered
 </button>
-<Toast />
+<Toasts />
