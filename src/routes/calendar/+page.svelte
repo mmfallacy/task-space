@@ -22,7 +22,9 @@
 <Layout>
     <div class="wrapper">
         <section class="controls">
-            <h3>Calendar</h3>
+            <h2>Calendar</h2>
+            <hr />
+            <h4>Categories</h4>
         </section>
         <section class="view">
             <header>
@@ -74,7 +76,6 @@
     .view header h2 {
         font-weight: 600;
         font-size: 20px;
-        line-height: 24px;
         flex: 1;
     }
 
@@ -87,5 +88,23 @@
         line-height: 20px;
 
         cursor: pointer;
+    }
+    .controls {
+        padding: 8px;
+    }
+    .controls hr {
+        margin: 8px 0;
+        border: 1px solid #e2e8f0;
+    }
+    .controls h2 {
+        font-weight: 600;
+        font-size: 20px;
+        flex: 1;
+    }
+    .controls h4 {
+        color: #94a3b8;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
     }
 </style>
