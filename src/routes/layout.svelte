@@ -30,4 +30,7 @@
         background: white;
         box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.1);
     }
+    .content {
+        overflow: hidden;
+    }
 </style>
