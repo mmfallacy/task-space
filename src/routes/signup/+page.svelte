@@ -1,5 +1,7 @@
 <script lang="ts">
+    import Toasts from '@/components/Toasts.svelte';
     import { credentials } from '@/stores/credentials';
+    import { notifications } from '@/stores/notifications';
     import { CredentialsSchema } from '@/types';
     import { hashSHA256 } from '@/utils';
     import { z } from 'zod';
@@ -21,6 +23,13 @@
             email: parsed.email,
             passwordHash: await hashSHA256(parsed.password),
         };
+
+        const match = $credentials.filter(
+            (credential) => credential.email === processed.email
+        );
+
+        if (match.length > 0)
+            return notifications.registered('Email already registered!', 3000);
 
         credentials.add(CredentialsSchema.omit({ uid: true }).parse(processed));
     }
@@ -116,6 +125,7 @@
             </div>
         </div>
     </main>
+    <Toasts />
 </div>
 
 <style>
