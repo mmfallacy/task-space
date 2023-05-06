@@ -1,7 +1,7 @@
 <script>
     import { flip } from 'svelte/animate';
     import { fly } from 'svelte/transition';
-    import { notifications } from './notifications.js';
+    import { notifications } from '@/stores/notifications.js';
 
     export let themes = {
         email: '#EE6B6E',
