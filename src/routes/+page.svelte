@@ -6,6 +6,8 @@
     import { z } from 'zod';
     import { goto } from '$app/navigation';
     import { currentUser } from '@/stores/currentUser';
+    import { notifications } from '@/stores/notifications';
+    import Toasts from '@/components/Toasts.svelte';
 
     async function onSubmit(this: HTMLFormElement) {
         const formData = new FormData(this);
@@ -32,7 +34,8 @@
         );
 
         // Only 1 matching registered user
-        assert(match.length == 1);
+        if (match.length != 1)
+            return notifications.send('Invalid Credentials!', 'email', 3000);
 
         currentUser.update(() => match[0].uid);
 
@@ -108,6 +111,7 @@
                 </div>
             </div>
         </main>
+        <Toasts />
     </div>
 {/if}
 
