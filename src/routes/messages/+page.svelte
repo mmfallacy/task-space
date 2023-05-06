@@ -1,5 +1,5 @@
 <script>
-    import { notifications } from './notifications.js';
+    import { notifications } from '@/stores/notifications.js';
     import Toast from './Toast.svelte';
 </script>
 
