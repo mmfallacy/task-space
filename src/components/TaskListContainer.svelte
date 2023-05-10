@@ -1,5 +1,4 @@
 <script>
-
 </script>
 
 <main>
@@ -7,25 +6,19 @@
         <div class="tasklist-maincontent-header">
             <div class="tasklist-header-tasktitle">
                 <div>
-                    <p style="font-family:arial">
-                        Task Title
-                    </p>
+                    <p style="font-family:arial">Task Title</p>
                 </div>
             </div>
 
             <div class="tasklist-header-duedate">
                 <div>
-                    <p style="font-family:arial">
-                        Due Date
-                    </p>
+                    <p style="font-family:arial">Due Date</p>
                 </div>
             </div>
 
             <div class="tasklist-header-category">
                 <div>
-                    <p style="font-family:arial">
-                        Category
-                    </p>
+                    <p style="font-family:arial">Category</p>
                 </div>
             </div>
 

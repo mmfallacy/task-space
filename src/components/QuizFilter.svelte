@@ -1,5 +1,4 @@
 <script>
-
 </script>
 
 <main>
@@ -12,7 +11,7 @@
         <div class="flex-fill" />
 
         <div class="checkbox-container">
-             <input type="checkbox" />
+            <input type="checkbox" />
         </div>
     </div>
 </main>
@@ -62,5 +61,4 @@
         color: black;
         letter-spacing: -0.04em;
     }
-
 </style>

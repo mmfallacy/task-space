@@ -41,7 +41,6 @@
             <CS191Filter />
 
             <CS21Filter />
-
         </div>
     </div>
 </main>
@@ -91,5 +90,4 @@
         width: 100%;
         background: #e2e8f0;
     }
-
 </style>

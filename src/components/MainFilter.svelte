@@ -1,12 +1,9 @@
 <script>
-
 </script>
 
 <main>
     <div class="checkbox-main">
-        <p class="TTCommons-Regular-16" style="color:white">
-            All Tasks
-        </p>
+        <p class="TTCommons-Regular-16" style="color:white">All Tasks</p>
 
         <div class="checkbox-container">
             <input type="checkbox" />

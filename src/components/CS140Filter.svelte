@@ -1,20 +1,19 @@
 <script>
-
 </script>
 
 <main>
     <div
-    class="checkbox-main-white"
-    style="margin-top: -15px; margin-bottom: -15px;"
+        class="checkbox-main-white"
+        style="margin-top: -15px; margin-bottom: -15px;"
     >
-    <p class="TTCommons-Regular-16">CS 140</p>
+        <p class="TTCommons-Regular-16">CS 140</p>
 
-    <div class="flex-fill" />
+        <div class="flex-fill" />
 
-    <div class="checkbox-container">
-        <input type="checkbox" />
+        <div class="checkbox-container">
+            <input type="checkbox" />
+        </div>
     </div>
-</div>
 </main>
 
 <style>

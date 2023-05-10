@@ -1,4 +1,4 @@
-export { default as TaskListContainer} from '@/components/TaskListContainer.svelte';
+export { default as TaskListContainer } from '@/components/TaskListContainer.svelte';
 
 export { default as Sidebar } from '@/components/Sidebar.svelte';
 

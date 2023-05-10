@@ -4,7 +4,7 @@
     import { Categories } from '@/task-list-exports.js';
     import { TaskListItems } from '@/task-list-exports.js';
     import { TaskListContainer } from '@/task-list-exports.js';
-    
+
     console.log($currentUser);
 </script>
 
@@ -20,7 +20,6 @@
         <Sidebar />
 
         <div class="right-left-wrapper">
-            
             <Categories />
 
             <div class="right">
@@ -42,12 +41,11 @@
                         <TaskListContainer />
 
                         <TaskListItems />
-                        
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 </main>
 
 <style>
@@ -110,5 +108,4 @@
         color: black;
         letter-spacing: -0.04em;
     }
-
 </style>

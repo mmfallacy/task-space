@@ -4,59 +4,56 @@
 
 <main>
     {#each $tasks as task (task.uid)}
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <div
-        class="tasklist-row-container"
-        on:click={() => tasks.delete(task.uid)}
-    >
-        <div class="tasklist-row-tasktitle">
-            <div>
-                <p
-                    style="font-family:arial; font-weight: bold;"
-                >
-                    {task.name}
-                </p>
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <div
+            class="tasklist-row-container"
+            on:click={() => tasks.delete(task.uid)}
+        >
+            <div class="tasklist-row-tasktitle">
+                <div>
+                    <p style="font-family:arial; font-weight: bold;">
+                        {task.name}
+                    </p>
+                </div>
+            </div>
+
+            <div class="tasklist-row-duedate">
+                <div>
+                    <p style="font-family:arial">
+                        {task.deadline.toString()}
+                    </p>
+                </div>
+            </div>
+
+            <div class="tasklist-row-category">
+                <div class="category-container">
+                    <div
+                        class="category-color"
+                        style="background: rgb(255, 107, 0);"
+                    />
+                    <p style="font-family:arial">
+                        {task.category}
+                    </p>
+                </div>
+            </div>
+
+            <div class="tasklist-row-status">
+                <div>
+                    <p
+                        style="font-family:arial; font-weight:bold;  color: #10B981"
+                    >
+                        Ongoing
+                    </p>
+                </div>
+            </div>
+
+            <div class="tasklist-row-dropdown">
+                <div class="dropdown">
+                    <p />
+                </div>
             </div>
         </div>
-
-        <div class="tasklist-row-duedate">
-            <div>
-                <p style="font-family:arial">
-                    {task.deadline.toString()}
-                </p>
-            </div>
-        </div>
-
-        <div class="tasklist-row-category">
-            <div class="category-container">
-                <div
-                    class="category-color"
-                    style="background: rgb(255, 107, 0);"
-                />
-                <p style="font-family:arial">
-                    {task.category}
-                </p>
-            </div>
-        </div>
-
-        <div class="tasklist-row-status">
-            <div>
-                <p
-                    style="font-family:arial; font-weight:bold;  color: #10B981"
-                >
-                    Ongoing
-                </p>
-            </div>
-        </div>
-
-        <div class="tasklist-row-dropdown">
-            <div class="dropdown">
-                <p />
-            </div>
-        </div>
-    </div>
-{/each}
-
+    {/each}
 </main>
 
 <style>
@@ -86,7 +83,7 @@
         cursor: pointer;
         min-height: 64px;
     }
-    
+
     .dropdown {
         background-image: url(Dropdown.png);
         background-repeat: no-repeat;
@@ -98,7 +95,7 @@
         border: none;
         cursor: pointer;
     }
-    
+
     .tasklist-row-status {
         flex: 1 1 170px;
         min-width: 170px;

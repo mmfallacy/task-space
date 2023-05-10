@@ -1,5 +1,5 @@
 <script>
-// @ts-nocheck
+    // @ts-nocheck
 
     import { flip } from 'svelte/animate';
     import { fly } from 'svelte/transition';
