@@ -1,4 +1,6 @@
-<script lang="ts"></script>
+<script lang="ts">
+    import './global.css';
+</script>
 
 <main class="grid">
     <div class="navbar" />
