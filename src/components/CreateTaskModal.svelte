@@ -54,7 +54,7 @@
             <br />
 
             <div>
-                <label for="name">Timesacale</label>
+                <label for="name">Timescale</label>
                 <input
                     type="number"
                     name="timescale"

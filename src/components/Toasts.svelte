@@ -1,6 +1,4 @@
 <script>
-    // @ts-nocheck
-
     import { flip } from 'svelte/animate';
     import { fly } from 'svelte/transition';
     import { notifications } from '@/stores/notifications.js';
