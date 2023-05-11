@@ -19,11 +19,11 @@
 <style>
     .grid {
         display: grid;
-        grid-template-rows: 36px auto;
-        grid-template-columns: 56px auto;
+        grid-template-rows: 36px calc(100% - 56px);
+        grid-template-columns: 56px calc(100% - 56px);
 
-        height: 100svh;
-        width: 100svw;
+        height: 100%;
+        width: 100%;
 
         font-family: Arial, Helvetica, sans-serif;
         color: #475569;
@@ -41,7 +41,8 @@
         box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.1);
     }
     .content {
-        overflow: hidden;
+        height: 100%;
+        width: 100%;
         background: #f8fafc;
     }
 </style>
