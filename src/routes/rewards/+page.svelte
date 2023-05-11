@@ -1,63 +1,13 @@
 <script lang="ts">
-    import Modal from '@/components/CreateTaskModal.svelte';
-    import { currentUser } from '@/stores/currentUser';
+    import Layout from '@/routes/layout.svelte';
     import MainFocus from '@/components/Rewards-MainFocus.svelte';
 
-    let rewards = [
-        {
-            title: '30 days streak',
-            content: 'Way to go! We’re so proud of you :)',
-            date: '07 Nov 2022',
-        },
-        {
-            title: '20 days streak',
-            content: 'It may seem impossible until it’s done',
-            date: '27 Oct 2022',
-        },
-        {
-            title: '10 days streak',
-            content: 'We are capable of amazing things',
-            date: '17 Oct 2022',
-        },
-    ];
-
-    let showModal = false;
-
-    console.log($currentUser);
+    import { REWARDS } from '@/stores/rewards';
 </script>
 
-<main>
-    <div class="main">
-        <div
-            class="navbar TTCommons-Regular-16"
-            style="font-size:14px; color:white; text-align:right;"
-        >
-            Hello, {$currentUser}
-        </div>
-
-        <div class="sidebar">
-            <br />
-            <div class="sidebar-header">
-                <button class="plus" on:click={() => (showModal = !showModal)}>
-                    <div class="plusbutton" />
-                </button>
-
-                <button class="line" style="width: 50px;" />
-
-                <button class="not-selected">
-                    <div class="homebutton" />
-                </button>
-
-                <button class="selected">
-                    <div class="taskbutton" />
-                </button>
-            </div>
-        </div>
-
-        <MainFocus {rewards} />
-    </div>
-    <Modal {showModal} />
-</main>
+<Layout>
+    <MainFocus rewards={REWARDS} />
+</Layout>
 
 <style>
     .navbar {

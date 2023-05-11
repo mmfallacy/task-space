@@ -1,4 +1,6 @@
 <script>
+    import { format } from 'date-fns';
+
     export let reward = {};
 </script>
 
@@ -6,9 +8,11 @@
     <div class="notification-reward-image" />
     <div class="notification-reward-content">
         <p class="TTCommons-Regular-16">
-            <b>{reward.title}</b> — {reward.content}
+            <b>{reward.title}</b> — {reward.description}
         </p>
-        <p class="notification-reward-content-date">{reward.date}</p>
+        <p class="notification-reward-content-date">
+            {format(reward.dateAcquired, 'MMMM dd yyyy')}
+        </p>
     </div>
 </div>
 
