@@ -2,6 +2,7 @@
     import Modal from '@/components/CreateTaskModal.svelte';
     import { currentUser } from '@/stores/currentUser';
     import Resources from '@/components/Resources.svelte';
+    import Layout from '../layout.svelte';
 
     const resources = [
         {
@@ -19,213 +20,61 @@
             tags: ['Meditation'],
         },
     ];
-
-    let showModal = false;
-
-    console.log($currentUser);
 </script>
 
-<main>
-    <div class="main">
-        <div
-            class="navbar TTCommons-Regular-16"
-            style="font-size:14px; color:white; text-align:right;"
-        >
-            Hello, {$currentUser}
+<Layout>
+    <div class="right-left-wrapper">
+        <div class="left">
+            <h1 class="TTCommons-Regular-20">Back to Dashboard</h1>
+
+            <button class="line" style="width: 250px;" />
         </div>
-
-        <div class="sidebar">
-            <br />
-            <div class="sidebar-header">
-                <button class="plus" on:click={() => (showModal = !showModal)}>
-                    <div class="plusbutton" />
-                </button>
-
-                <button class="line" style="width: 50px;" />
-
-                <button class="not-selected">
-                    <div class="homebutton" />
-                </button>
-
-                <button class="selected">
-                    <div class="taskbutton" />
-                </button>
+        <div class="right">
+            <div class="resources-header">
+                <h1 style="font-family: arial;">Resources</h1>
             </div>
-        </div>
 
-        <div class="right-left-wrapper">
-            <div class="left">
-                <h1 class="TTCommons-Regular-20">Back to Dashboard</h1>
+            <div class="spacer" />
 
-                <button class="line" style="width: 250px;" />
+            <div class="resources-wrapper">
+                <div class="resources-row-mental">
+                    <div class="resources-row-contents">
+                        <div class="resources-row-contents-container">
+                            <div class="mental-hotline" />
 
-                <div class="checkbox-list">
-                    <div class="checkbox-main">
-                        <p class="TTCommons-Regular-16" style="color:white">
-                            All Resources
-                        </p>
-
-                        <div class="checkbox-container">
-                            <input type="checkbox" />
-                        </div>
-                    </div>
-
-                    <div class="checkbox-main-white">
-                        <div class="checkbox-child-title">
-                            <p>Activities</p>
-                        </div>
-
-                        <div class="flex-fill" />
-
-                        <div class="checkbox-container">
-                            <input type="checkbox" />
-                        </div>
-                    </div>
-
-                    <div class="horizontal" />
-
-                    <div
-                        class="checkbox-main-white"
-                        style="margin-top: -15px; margin-bottom: -15px;"
-                    >
-                        <p class="TTCommons-Regular-16">Meditation</p>
-
-                        <div class="flex-fill" />
-
-                        <div class="checkbox-container">
-                            <input type="checkbox" />
-                        </div>
-                    </div>
-
-                    <div
-                        class="checkbox-main-white"
-                        style="margin-top: -20px; margin-bottom: -15px;"
-                    >
-                        <p class="TTCommons-Regular-16">Yoga</p>
-
-                        <div class="flex-fill" />
-
-                        <div class="checkbox-container">
-                            <input type="checkbox" />
-                        </div>
-                    </div>
-
-                    <div
-                        class="checkbox-main-white"
-                        style="margin-top: -20px; margin-bottom: -15px;"
-                    >
-                        <p class="TTCommons-Regular-16">Stretches</p>
-
-                        <div class="flex-fill" />
-
-                        <div class="checkbox-container">
-                            <input type="checkbox" />
-                        </div>
-                    </div>
-
-                    <div class="checkbox-main-white">
-                        <div class="checkbox-child-title">
-                            <p>Videos</p>
-                        </div>
-
-                        <div class="flex-fill" />
-
-                        <div class="checkbox-container">
-                            <input type="checkbox" />
-                        </div>
-                    </div>
-
-                    <div class="horizontal" />
-
-                    <div
-                        class="checkbox-main-white"
-                        style="margin-top: -15px; margin-bottom: -15px;"
-                    >
-                        <p class="TTCommons-Regular-16">Personal Development</p>
-
-                        <div class="flex-fill" />
-
-                        <div class="checkbox-container">
-                            <input type="checkbox" />
-                        </div>
-                    </div>
-
-                    <div
-                        class="checkbox-main-white"
-                        style="margin-top: -15px; margin-bottom: -15px;"
-                    >
-                        <p class="TTCommons-Regular-16">Productivity</p>
-
-                        <div class="flex-fill" />
-
-                        <div class="checkbox-container">
-                            <input type="checkbox" />
-                        </div>
-                    </div>
-
-                    <div
-                        class="checkbox-main-white"
-                        style="margin-top: -15px; margin-bottom: -15px;"
-                    >
-                        <p class="TTCommons-Regular-16">Mental Health</p>
-
-                        <div class="flex-fill" />
-
-                        <div class="checkbox-container">
-                            <input type="checkbox" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="right">
-                <div class="resources-header">
-                    <h1 style="font-family: arial;">Resources</h1>
-                </div>
-
-                <div class="spacer" />
-
-                <div class="resources-wrapper">
-                    <div class="resources-row-mental">
-                        <div class="resources-row-contents">
-                            <div class="resources-row-contents-container">
-                                <div class="mental-hotline" />
-
-                                <div class="resource-information">
-                                    <div class="resource-information-container">
-                                        <p class="TTCommons-Bold-16">
-                                            Need help? Here are mental health
-                                            hotlines!
-                                        </p>
-                                        <p class="para-spacer" />
-                                        <p class="TTCommons-Regular-16">
-                                            09XXXXXXXXX — Philippine Mental
-                                            Health Association
-                                        </p>
-                                        <p class="TTCommons-Regular-16">
-                                            09XXXXXXXXX — 24/7 Mental Health
-                                            Hotline
-                                        </p>
-                                        <p class="TTCommons-Regular-16">
-                                            email@gmail.com — Better Health
-                                        </p>
-                                        <p class="TTCommons-Regular-16">
-                                            email@gmail.com — PsychServe
-                                        </p>
-                                    </div>
+                            <div class="resource-information">
+                                <div class="resource-information-container">
+                                    <p class="TTCommons-Bold-16">
+                                        Need help? Here are mental health
+                                        hotlines!
+                                    </p>
+                                    <p class="para-spacer" />
+                                    <p class="TTCommons-Regular-16">
+                                        09XXXXXXXXX — Philippine Mental Health
+                                        Association
+                                    </p>
+                                    <p class="TTCommons-Regular-16">
+                                        09XXXXXXXXX — 24/7 Mental Health Hotline
+                                    </p>
+                                    <p class="TTCommons-Regular-16">
+                                        email@gmail.com — Better Health
+                                    </p>
+                                    <p class="TTCommons-Regular-16">
+                                        email@gmail.com — PsychServe
+                                    </p>
                                 </div>
-
-                                <div class="pin" />
                             </div>
+
+                            <div class="pin" />
                         </div>
                     </div>
-
-                    <Resources {resources} />
                 </div>
+
+                <Resources {resources} />
             </div>
         </div>
     </div>
-    <Modal {showModal} />
-</main>
+</Layout>
 
 <style>
     .tags {
@@ -359,6 +208,8 @@
 
     .right-left-wrapper {
         display: flex;
+        height: 100%;
+        width: 100%;
     }
 
     .right {
@@ -368,8 +219,7 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-        margin-top: 10px;
-        margin-left: -10px;
+        height: 100%;
 
         padding: 24px;
     }
@@ -458,68 +308,12 @@
 
     .left {
         width: 250px;
-        height: calc(100vh - 68px);
         background: #fff;
         box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
         padding: 24px 16px;
-        margin: 10px 10px 10px 55px;
+        height: 100%;
         display: flex;
         flex-direction: column;
-    }
-
-    .navbar {
-        background: #156ef0;
-        z-index: 1000 !important;
-        padding: 15px !important;
-        margin: -10px !important;
-    }
-
-    .selected {
-        cursor: pointer;
-
-        background: #156ef0;
-        border-radius: 8px;
-        border: none;
-    }
-
-    .not-selected {
-        cursor: pointer;
-
-        background: white;
-        border-radius: 8px;
-        border: none;
-    }
-
-    .homebutton {
-        background-image: url('icons/HomeButton.png');
-
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 24px;
-        margin: 10px;
-        padding: 10px;
-
-        border: none;
-    }
-
-    .taskbutton {
-        background-image: url('icons/TaskButton.png');
-
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 24px;
-        margin: 10px;
-        padding: 10px;
-
-        border: none;
-    }
-
-    .plus {
-        cursor: pointer;
-
-        background: #156ef0;
-        border-radius: 8px;
-        border: none;
     }
 
     .line {
@@ -528,41 +322,6 @@
         background: E2E8F0;
         border-radius: 8px;
         border: none;
-    }
-
-    .plusbutton {
-        background-image: url('icons/PlusButton.png');
-
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 24px;
-        margin: 10px;
-        padding: 10px;
-
-        border: none;
-    }
-
-    .sidebar {
-        position: absolute;
-        background: white;
-        height: 700px;
-        width: 64px !important;
-        min-width: 64px !important;
-        box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.1);
-
-        margin: 10px -8px;
-        padding: 0px;
-    }
-
-    .sidebar-header {
-        padding: 0px 0px 0px 5px;
-        border-bottom: none;
-    }
-
-    .main {
-        background: #e2e8f0;
-        padding: 0 !important;
-        margin: 0 !important;
     }
 
     .TTCommons-Regular-16 {
