@@ -42,5 +42,6 @@
     }
     .content {
         overflow: hidden;
+        background: #f8fafc;
     }
 </style>
