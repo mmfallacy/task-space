@@ -1,4 +1,4 @@
-export const Rewards = [
+export const REWARDS = [
     {
         title: '30 days streak',
         dateAcquired: new Date(0),
