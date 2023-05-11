@@ -19,7 +19,7 @@
 <style>
     .grid {
         display: grid;
-        grid-template-rows: 24px auto;
+        grid-template-rows: 36px auto;
         grid-template-columns: 64px auto;
 
         height: 100svh;
