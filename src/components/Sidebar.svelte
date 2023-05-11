@@ -8,38 +8,31 @@
 </script>
 
 <aside class="sidebar">
-    <div class="sidebar-header">
-        <button class="plus" on:click={toggleModal}>
-            <div class="plusbutton" />
-        </button>
+    <button class="plus" on:click={toggleModal}>
+        <div class="plusbutton" />
+    </button>
 
-        <button class="line" style="width: 50px;" />
+    <button class="line" style="width: 50px;" />
 
-        <button class="not-selected">
-            <div class="homebutton" />
-        </button>
+    <button class="not-selected">
+        <div class="homebutton" />
+    </button>
 
-        <button class="selected">
-            <div class="taskbutton" />
-        </button>
-    </div>
+    <button class="selected">
+        <div class="taskbutton" />
+    </button>
 </aside>
 
 <style>
     .sidebar {
-        position: absolute;
         background: white;
-        height: calc(100vh - 68px);
-        width: 64px;
-        min-width: 64px;
+        height: 100%;
+        width: 100%;
         box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.1);
-        margin: 20px -8px;
-        padding: 0px;
-    }
-
-    .sidebar-header {
-        padding: 0px 0px 0px 5px;
-        border-bottom: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px 0;
     }
 
     .plus {
