@@ -26,7 +26,7 @@
     }
 
     .notification-reward-image {
-        background-image: url('Avatar.png');
+        background-image: url('images/Avatar.png');
 
         background-repeat: no-repeat;
         background-position: top;
