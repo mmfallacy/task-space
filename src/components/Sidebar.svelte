@@ -1,7 +1,20 @@
 <script>
     import Modal from '@/components/CreateTaskModal.svelte';
     import FaRegCalendar from 'svelte-icons/fa/FaRegCalendar.svelte';
+    import FaRegListAlt from 'svelte-icons/fa/FaRegListAlt.svelte';
+    import FaBookOpen from 'svelte-icons/fa/FaBookOpen.svelte';
+    import FaRegStar from 'svelte-icons/fa/FaRegStar.svelte';
+    import clsx from 'clsx';
     let showModal = false;
+
+    let routes = [
+        { url: '/task-list', icon: FaRegListAlt },
+        { url: '/calendar', icon: FaRegCalendar },
+        { url: '/rewards', icon: FaRegStar },
+        { url: '/resources', icon: FaBookOpen },
+    ];
+
+    let currentPathname = window.location.pathname;
 </script>
 
 <aside class="sidebar">
@@ -11,17 +24,14 @@
 
     <hr />
 
-    <button class="navitem">
-        <div class="homebutton" />
-    </button>
-
-    <button class="navitem selected">
-        <div class="taskbutton" />
-    </button>
-
-    <button class="navitem">
-        <FaRegCalendar />
-    </button>
+    {#each routes as route}
+        <a
+            href={route.url}
+            class={clsx('navitem', currentPathname == route.url && 'selected')}
+        >
+            <svelte:component this={route.icon} />
+        </a>
+    {/each}
 
     <Modal {showModal} />
 </aside>
@@ -57,30 +67,6 @@
         border: none;
     }
 
-    .homebutton {
-        background-image: url('icons/HomeButton.png');
-
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 24px;
-        height: 100%;
-        width: 100%;
-
-        border: none;
-    }
-
-    .taskbutton {
-        background-image: url('icons/TaskButton.png');
-
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 24px;
-        height: 100%;
-        width: 100%;
-
-        border: none;
-    }
-
     hr {
         border: 1px solid #e2e8f0;
         border-radius: 8px;
@@ -92,6 +78,7 @@
         cursor: pointer;
 
         background: #156ef0;
+        color: white !important;
     }
 
     .navitem {
@@ -99,9 +86,11 @@
 
         border-radius: 8px;
         border: none;
-        height: 48px;
-        width: 48px;
+        height: 42px;
+        width: 42px;
         padding: 12px;
+
+        color: black;
     }
 
     .navitem:not(:last-child) {
