@@ -12,7 +12,7 @@
         <div class="plusbutton" />
     </button>
 
-    <button class="line" style="width: 50px;" />
+    <hr />
 
     <button class="not-selected">
         <div class="homebutton" />
@@ -78,12 +78,11 @@
         border: none;
     }
 
-    .line {
-        cursor: pointer;
-
-        background: E2E8F0;
+    hr {
+        border: 1px solid #e2e8f0;
         border-radius: 8px;
-        border: none;
+        margin: 7px 0;
+        width: 80%;
     }
 
     .selected {
