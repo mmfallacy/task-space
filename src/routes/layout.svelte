@@ -1,10 +1,16 @@
 <script lang="ts">
+    import Navbar from '@/components/Navbar.svelte';
     import './global.css';
+    import Sidebar from '@/components/Sidebar.svelte';
 </script>
 
 <main class="grid">
-    <div class="navbar" />
-    <div class="sidebar" />
+    <div class="navbar">
+        <Navbar />
+    </div>
+    <div class="sidebar">
+        <Sidebar />
+    </div>
     <div class="content">
         <slot />
     </div>
@@ -13,8 +19,8 @@
 <style>
     .grid {
         display: grid;
-        grid-template-rows: 24px auto;
-        grid-template-columns: 64px auto;
+        grid-template-rows: 36px auto;
+        grid-template-columns: 56px auto;
 
         height: 100svh;
         width: 100svw;
@@ -29,10 +35,13 @@
         background: blue;
     }
     .sidebar {
+        position: relative;
+        z-index: 2000;
         background: white;
         box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.1);
     }
     .content {
         overflow: hidden;
+        background: #f8fafc;
     }
 </style>

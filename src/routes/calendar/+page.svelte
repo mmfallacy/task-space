@@ -49,6 +49,7 @@
         width: 100%;
     }
     .controls {
+        background: white;
         width: 320px;
     }
     .view {
@@ -62,6 +63,9 @@
         display: flex;
         padding: 8px;
         align-items: center;
+        background: white;
+        position: relative;
+        z-index: 10;
     }
 
     .view header button:has(svg) {
@@ -90,7 +94,7 @@
         cursor: pointer;
     }
     .controls {
-        padding: 8px;
+        padding: 16px;
     }
     .controls hr {
         margin: 8px 0;
