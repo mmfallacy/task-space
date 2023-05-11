@@ -1,6 +1,6 @@
 import type { ResourceType } from '@/types';
 
-export const Resources: ResourceType[] = [
+export const RESOURCES: ResourceType[] = [
     {
         title: 'Need help? Here are some mental health hotlines',
         content:
