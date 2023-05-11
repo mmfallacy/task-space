@@ -1,5 +1,6 @@
 <script>
     import Modal from '@/components/CreateTaskModal.svelte';
+    import FaRegCalendar from 'svelte-icons/fa/FaRegCalendar.svelte';
     let showModal = false;
 </script>
 
@@ -10,12 +11,16 @@
 
     <hr />
 
-    <button class="not-selected">
+    <button class="navitem">
         <div class="homebutton" />
     </button>
 
-    <button class="selected">
+    <button class="navitem selected">
         <div class="taskbutton" />
+    </button>
+
+    <button class="navitem">
+        <FaRegCalendar />
     </button>
 
     <Modal {showModal} />
@@ -58,8 +63,8 @@
         background-repeat: no-repeat;
         background-position: center;
         background-size: 24px;
-        margin: 10px;
-        padding: 10px;
+        height: 100%;
+        width: 100%;
 
         border: none;
     }
@@ -70,8 +75,8 @@
         background-repeat: no-repeat;
         background-position: center;
         background-size: 24px;
-        margin: 10px;
-        padding: 10px;
+        height: 100%;
+        width: 100%;
 
         border: none;
     }
@@ -87,15 +92,19 @@
         cursor: pointer;
 
         background: #156ef0;
-        border-radius: 8px;
-        border: none;
     }
 
-    .not-selected {
+    .navitem {
         cursor: pointer;
 
-        background: white;
         border-radius: 8px;
         border: none;
+        height: 48px;
+        width: 48px;
+        padding: 12px;
+    }
+
+    .navitem:not(:last-child) {
+        margin-bottom: 12px;
     }
 </style>
