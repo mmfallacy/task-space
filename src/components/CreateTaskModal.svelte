@@ -24,81 +24,77 @@
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<main>
-    <dialog
-        bind:this={dialog}
-        on:close={() => (showModal = false)}
-        on:click|self={() => dialog.close()}
-    >
-        <div class="modal-header">
-            <div class="TTCommons-DemiBold-34">Create a task</div>
-            <div class="TTCommons-Regular-20">
-                An organized task schedule is key to success!
-            </div>
-            <hr />
+<dialog
+    bind:this={dialog}
+    on:close={() => (showModal = false)}
+    on:click|self={() => dialog.close()}
+>
+    <div class="modal-header">
+        <div class="TTCommons-DemiBold-34">Create a task</div>
+        <div class="TTCommons-Regular-20">
+            An organized task schedule is key to success!
         </div>
+        <hr />
+    </div>
 
-        <form on:submit={onSubmit}>
+    <form on:submit={onSubmit}>
+        <div style="margin: 0px 0px 8px 0px;">
+            <label class="TTCommons-Regular-16" for="name">Task Title</label>
+        </div>
+        <div>
+            <input class="form" type="text" name="name" required />
+        </div>
+        <br />
+
+        <!-- Date and Time -->
+        <div class="date">
             <div style="margin: 0px 0px 8px 0px;">
-                <label class="TTCommons-Regular-16" for="name">Task Title</label
-                >
+                <label class="TTCommons-Regular-16" for="name">Date</label>
             </div>
             <div>
-                <input class="form" type="text" name="name" required />
+                <input class="form" type="date" name="deadline" />
             </div>
-            <br />
+        </div>
+        <br />
 
-            <!-- Date and Time -->
-            <div class="date">
-                <div style="margin: 0px 0px 8px 0px;">
-                    <label class="TTCommons-Regular-16" for="name">Date</label>
-                </div>
-                <div>
-                    <input class="form" type="date" name="deadline" />
-                </div>
-            </div>
-            <br />
+        <!-- Category -->
+        <div style="margin: 0px 0px 8px 0px;">
+            <label class="TTCommons-Regular-16" for="name">Category</label>
+        </div>
+        <div>
+            <select required class="form" name="category">
+                {#each cat as c}
+                    <option value={c.text}>
+                        {c.text}
+                    </option>
+                {/each}
+            </select>
+        </div>
+        <br />
 
-            <!-- Category -->
-            <div style="margin: 0px 0px 8px 0px;">
-                <label class="TTCommons-Regular-16" for="name">Category</label>
-            </div>
-            <div>
-                <select required class="form" name="category">
-                    {#each cat as c}
-                        <option value={c.text}>
-                            {c.text}
-                        </option>
-                    {/each}
-                </select>
-            </div>
-            <br />
+        <!-- Difficulty -->
+        <div style="margin: 0px 0px 8px 0px;">
+            <label class="TTCommons-Regular-16" for="name">Difficulty</label>
+        </div>
+        <div>
+            <input
+                class="form"
+                type="number"
+                name="timescale"
+                min="1"
+                max="10"
+                required
+            />
+        </div>
+        <br />
 
-            <!-- Difficulty -->
-            <div style="margin: 0px 0px 8px 0px;">
-                <label class="TTCommons-Regular-16" for="name">Difficulty</label
-                >
-            </div>
-            <div>
-                <input
-                    class="form"
-                    type="number"
-                    name="timescale"
-                    min="1"
-                    max="10"
-                    required
-                />
-            </div>
-            <br />
-
-            <!-- Submit button -->
-            <div class="modal-footer">
-                <div />
-                <button class="primary-button" type="submit">Continue</button>
-            </div>
-        </form>
-    </dialog>
-</main>
+        <!-- Submit button -->
+        <div class="modal-footer">
+            <div />
+            <button class="primary-button" type="submit">Continue</button>
+        </div>
+    </form>
+</dialog>
 
 <style>
     .date-time-wrapper {
@@ -174,5 +170,10 @@
         border: none;
         border-radius: 8px;
         box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+        padding: 16px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 </style>

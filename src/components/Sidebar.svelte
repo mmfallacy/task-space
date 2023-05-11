@@ -1,14 +1,10 @@
 <script>
-    import { createEventDispatcher } from 'svelte';
-    const dispatch = createEventDispatcher();
-
-    function toggleModal() {
-        dispatch('toggleModal');
-    }
+    import Modal from '@/components/CreateTaskModal.svelte';
+    let showModal = false;
 </script>
 
 <aside class="sidebar">
-    <button class="plus" on:click={toggleModal}>
+    <button class="plus" on:click={() => (showModal = !showModal)}>
         <div class="plusbutton" />
     </button>
 
@@ -21,6 +17,8 @@
     <button class="selected">
         <div class="taskbutton" />
     </button>
+
+    <Modal {showModal} />
 </aside>
 
 <style>
