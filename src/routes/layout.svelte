@@ -1,10 +1,16 @@
 <script lang="ts">
+    import Navbar from '@/components/Navbar.svelte';
     import './global.css';
+    import Sidebar from '@/components/Sidebar.svelte';
 </script>
 
 <main class="grid">
-    <div class="navbar" />
-    <div class="sidebar" />
+    <div class="navbar">
+        <Navbar />
+    </div>
+    <div class="sidebar">
+        <Sidebar />
+    </div>
     <div class="content">
         <slot />
     </div>
