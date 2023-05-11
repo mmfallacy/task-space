@@ -241,7 +241,6 @@
     }
 
     .right {
-        background-color: white;
         overflow: hidden auto;
 
         display: flex;
@@ -252,9 +251,9 @@
     }
 
     .left {
-        width: 250px;
+        background: white;
+        width: 320px;
         height: 100%;
-        background: #fff;
         box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
         padding: 16px 16px;
         display: flex;
