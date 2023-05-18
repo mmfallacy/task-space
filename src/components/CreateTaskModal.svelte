@@ -1,6 +1,8 @@
 <script lang="ts">
     import { tasks } from '@/stores/task';
     import { TaskSchema } from '@/types';
+    import { currentUser } from '@/stores/currentUser';
+    import { assert } from '@/asserts';
 
     let dialog: HTMLDialogElement;
 
@@ -10,6 +12,9 @@
 
     function onSubmit(this: HTMLFormElement) {
         const formData = new FormData(this);
+        assert($currentUser != null)
+        formData.append("userId", $currentUser);
+        
         const data = Object.fromEntries(formData.entries());
 
         const task = TaskSchema.omit({ uid: true }).parse(data);
