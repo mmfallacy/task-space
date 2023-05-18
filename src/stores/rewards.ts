@@ -1,3 +1,7 @@
+import { RewardSchema, type RewardType } from '@/types';
+import { z } from 'zod';
+import { persistent } from './persistent';
+
 export const REWARDS = [
     {
         title: '30 days streak',
@@ -59,3 +63,24 @@ export const REWARDS = [
         description: "Wow! Seems like you're on a roll :)",
     },
 ];
+
+const RewardStore = z.array(RewardSchema);
+
+function createRewardStore() {
+    const { update, subscribe } = persistent(
+        'reward-store',
+        RewardStore.parse([]),
+        RewardStore
+    );
+
+    return {
+        add: (reward: RewardType) =>
+            update((rewards) => [
+                ...rewards,
+                { ...reward },
+            ]),
+        subscribe,
+    };
+}
+
+export const rewards = createRewardStore();
