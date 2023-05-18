@@ -99,6 +99,8 @@ function createRewardStore() {
                 ...rewards,
                 { uid: crypto.randomUUID(), ...reward },
             ]),
+        delete: (uid: RewardType['uid']) =>
+            update((rewards) => rewards.filter((reward) => reward.uid != uid)),
         subscribe,
     };
 }
