@@ -26,7 +26,7 @@ export const REWARDS = [
     {
         title: 'Completed 5 resources',
         dateAcquired: new Date(0),
-        description: '',
+        description: 'Great job!',
     },
 
     {
