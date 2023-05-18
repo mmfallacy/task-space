@@ -53,7 +53,7 @@
                             <div class="tasklist-row-dropdown" />
                         </div>
 
-                        {#each $tasks as task (task.uid)}
+                        {#each $tasks.filter((task) => task.userId === $currentUser) as task (task.uid)}
                             <div
                                 class="tasklist-row-container"
                                 on:click={() => tasks.delete(task.uid)}

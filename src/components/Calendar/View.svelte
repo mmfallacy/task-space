@@ -3,6 +3,7 @@
     import { isSameDay, isSameMonth, isToday } from 'date-fns';
     import ViewItem from './ViewItem.svelte';
     import { tasks } from '@/stores/task';
+    import { currentUser } from '@/stores/currentUser';
 
     export let current: Date;
     $: days = getCalendarDaysOfMonth(current);
@@ -35,7 +36,9 @@
         <ViewItem
             date={day}
             variant={getVariant(day, current)}
-            tasks={$tasks.filter((task) => isSameDay(task.deadline, day))}
+            tasks={$tasks
+                .filter((task) => isSameDay(task.deadline, day))
+                .filter((task) => task.userId === $currentUser)}
         />
     {/each}
 </div>
