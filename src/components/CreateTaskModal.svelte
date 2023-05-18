@@ -12,9 +12,9 @@
 
     function onSubmit(this: HTMLFormElement) {
         const formData = new FormData(this);
-        assert($currentUser != null)
-        formData.append("userId", $currentUser);
-        
+        assert($currentUser != null);
+        formData.append('userId', $currentUser);
+
         const data = Object.fromEntries(formData.entries());
 
         const task = TaskSchema.omit({ uid: true }).parse(data);
