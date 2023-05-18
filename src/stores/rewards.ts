@@ -74,10 +74,10 @@ function createRewardStore() {
     );
 
     return {
-        add: (reward: RewardType) =>
+        add: (reward: Omit<RewardType, 'uid'>) =>
             update((rewards) => [
                 ...rewards,
-                { ...reward },
+                { uid: crypto.randomUUID(), ...reward },
             ]),
         subscribe,
     };
