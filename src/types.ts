@@ -42,6 +42,7 @@ export const CredentialsSchema = z.object({
 export type CredentialsType = z.infer<typeof CredentialsSchema>;
 
 export const RewardSchema = z.object({
+    uid: z.string(),
     userId: CredentialsSchema.shape.uid,
     title: z.string(),
     dateAcquired: z.coerce.date(),
