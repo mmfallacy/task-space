@@ -2,6 +2,7 @@ import { z } from 'zod';
 
 export const TaskSchema = z.object({
     uid: z.string(),
+    userId: z.string(),
     name: z.string(),
     category: z.string(),
     deadline: z.coerce.date(),
