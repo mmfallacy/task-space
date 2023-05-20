@@ -5,20 +5,18 @@
     import { tasks } from '@/stores/task';
 
     export let current: Date;
-    $: days = getCalendarDaysOfMonth(current);
+    export let filterValues;
 
-    console.log(
-        current,
-        $tasks.map((task) => ({
-            title: task.name,
-            isNow: isSameDay(task.deadline, current),
-        }))
-    );
+    let filter;
+    filterValues.subscribe((values) => {
+        filter = values;
+    });
+
+    $: days = getCalendarDaysOfMonth(current);
 
     function getVariant(day: Date, current: Date) {
         if (isToday(day)) return 'today';
         if (isSameMonth(day, current)) return 'active';
-
         return 'inactive';
     }
 
@@ -35,7 +33,19 @@
         <ViewItem
             date={day}
             variant={getVariant(day, current)}
-            tasks={$tasks.filter((task) => isSameDay(task.deadline, day))}
+            tasks={$tasks.filter((task) => {
+                if (filter.allTasks) {
+                    return isSameDay(task.deadline, day);
+                } else if (
+                    (filter.computerScience &&
+                        task.category !== 'Computer Science') ||
+                    (filter.generalEducation &&
+                        task.category !== 'General Education')
+                ) {
+                    return false;
+                }
+                return isSameDay(task.deadline, day);
+            })}
         />
     {/each}
 </div>

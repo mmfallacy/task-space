@@ -17,20 +17,6 @@
         tasks.delete(taskUid);
     };
 
-    function showTask(task) {
-        const { computerScience, generalEducation } = filterValues;
-
-        if (computerScience && task.category === 'Computer Science') {
-            return true;
-        } else if (generalEducation && task.category === 'General Education') {
-            return true;
-        } else if (!computerScience && !generalEducation) {
-            return true; // Show all tasks if no category is selected
-        }
-
-        return false; // Don't show the task if it doesn't match the selected category
-    }
-
     const handleFilter = (event) => {
         const { computerScience, generalEducation } = event.detail;
 
