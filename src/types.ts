@@ -18,9 +18,9 @@ export const BadgeSchema = z.object({
 export type BadgeType = z.infer<typeof BadgeSchema>;
 
 export const ResourceSchema = z.object({
-    label: z.string(),
-    description: z.string(),
-    classification: z.string(),
+    title: z.string(),
+    content: z.string(),
+    link: z.string(),
 });
 
 export type ResourceType = z.infer<typeof ResourceSchema>;

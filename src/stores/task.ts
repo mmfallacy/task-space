@@ -1,12 +1,19 @@
-import type { TaskType } from '@/types';
+import { TaskSchema, type TaskType } from '@/types';
+import { z } from 'zod';
 import { persistent } from './persistent';
 
 /**
  * An array store that contains the tasks.
  * TODO: relax assumption that task store contains an array of tasks for one user
  */
+const TaskStore = z.array(TaskSchema);
+
 function createTaskStore() {
-    const { update, subscribe } = persistent<TaskType[]>('task-store', []);
+    const { update, subscribe } = persistent(
+        'task-store',
+        TaskStore.parse([]),
+        TaskStore
+    );
 
     return {
         add: (task: Omit<TaskType, 'uid'>) =>
@@ -14,10 +21,8 @@ function createTaskStore() {
                 ...tasks,
                 { uid: crypto.randomUUID(), ...task },
             ]),
-        /*
         delete: (uid: TaskType['uid']) =>
             update((tasks) => tasks.filter((task) => task.uid != uid)),
-        */
         subscribe,
     };
 }

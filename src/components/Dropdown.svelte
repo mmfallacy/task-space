@@ -1,35 +1,39 @@
 <script>
-    import { onMount } from 'svelte';
-
+    import { onMount, createEventDispatcher } from 'svelte';
+  
     let showMenu = false;
     let menu;
-
+  
+    const dispatch = createEventDispatcher();
+  
     const handleClickOutside = (event) => {
-        if (menu && !menu.contains(event.target)) {
-            showMenu = false;
-        }
+      if (menu && !menu.contains(event.target)) {
+        showMenu = false;
+      }
     };
-
+  
     onMount(() => {
-        document.addEventListener('click', handleClickOutside);
-        return () => {
-            document.removeEventListener('click', handleClickOutside);
-        };
+      document.addEventListener('click', handleClickOutside);
+      return () => {
+        document.removeEventListener('click', handleClickOutside);
+      };
     });
-</script>
-
-<div class="kebab-menu" bind:this={menu}>
+  
+    const handleDelete = () => {
+      dispatch('delete');
+    };
+  </script>
+  
+  <div class="kebab-menu" bind:this={menu}>
     <div class="dropdown" on:click={() => (showMenu = !showMenu)}>
-        <span />
-        <span />
-        <span />
+      <span />
+      <span />
     </div>
     <ul class="dropdown-menu {showMenu ? 'show' : ''}">
-        <li>Action 1</li>
-        <li>Action 2</li>
-        <li>Action 3</li>
+      <li on:click={handleDelete}>Delete</li>
+      <li>Edit</li>
     </ul>
-</div>
+  </div>  
 
 <style>
     .kebab-menu {
