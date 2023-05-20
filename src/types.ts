@@ -6,6 +6,7 @@ export const TaskSchema = z.object({
     category: z.string(),
     deadline: z.coerce.date(),
     timescale: z.coerce.number().min(1).max(10),
+    completed: z.coerce.boolean(),
 });
 
 export type TaskType = z.infer<typeof TaskSchema>;
