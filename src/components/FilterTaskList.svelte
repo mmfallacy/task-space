@@ -1,62 +1,64 @@
 <script>
     import { onMount, onDestroy, createEventDispatcher } from 'svelte';
-  
+
     let allTasksChecked = true;
     let computerScienceChecked = false;
     let generalEducationChecked = false;
-  
-    const dispatch = createEventDispatcher();
-  
-    function handleCheckboxChange(event) {
-      const { name, checked } = event.target;
-  
-      if (name === 'allTasks') {
-        allTasksChecked = checked;
-        computerScienceChecked = false;
-        generalEducationChecked = false;
-      } else if (name === 'computerScience') {
-        allTasksChecked = false;
-        computerScienceChecked = checked;
-        generalEducationChecked = !checked && generalEducationChecked; // Uncheck generalEducation if computerScience is checked
-      } else if (name === 'generalEducation') {
-        allTasksChecked = false;
-        generalEducationChecked = checked;
-        computerScienceChecked = !checked && computerScienceChecked; // Uncheck computerScience if generalEducation is checked
-      }
-  
-      dispatch('filter', {
-        computerScience: computerScienceChecked,
-        generalEducation: generalEducationChecked
-      });
-    }
-  
-    onMount(() => {
-      dispatch('filter', {
-        computerScience: computerScienceChecked,
-        generalEducation: generalEducationChecked
-      });
-    });
-  
-    onDestroy(() => {
-      // Cleanup code if needed
-    });
-  </script>
-  
-  <div class="checkbox-list">
 
+    const dispatch = createEventDispatcher();
+
+    function handleCheckboxChange(event) {
+        const { name, checked } = event.target;
+
+        if (name === 'allTasks') {
+            allTasksChecked = checked;
+            computerScienceChecked = false;
+            generalEducationChecked = false;
+        } else if (name === 'computerScience') {
+            allTasksChecked = false;
+            computerScienceChecked = checked;
+            generalEducationChecked = !checked && generalEducationChecked; // Uncheck generalEducation if computerScience is checked
+        } else if (name === 'generalEducation') {
+            allTasksChecked = false;
+            generalEducationChecked = checked;
+            computerScienceChecked = !checked && computerScienceChecked; // Uncheck computerScience if generalEducation is checked
+        }
+
+        dispatch('filter', {
+            computerScience: computerScienceChecked,
+            generalEducation: generalEducationChecked,
+        });
+    }
+
+    onMount(() => {
+        dispatch('filter', {
+            computerScience: computerScienceChecked,
+            generalEducation: generalEducationChecked,
+        });
+    });
+
+    onDestroy(() => {
+        // Cleanup code if needed
+    });
+</script>
+
+<div class="checkbox-list">
     <div>
         <label class="checkbox-main">
-          <p class="TTCommons-Regular-16" style="color:white">
-            All Tasks
-          </p>
+            <p class="TTCommons-Regular-16" style="color:white">All Tasks</p>
 
-          <div class="flex-fill" />
+            <div class="flex-fill" />
 
-          <input type="checkbox" name="allTasks" bind:checked={allTasksChecked} on:change={handleCheckboxChange} />
+            <input
+                type="checkbox"
+                name="allTasks"
+                bind:checked={allTasksChecked}
+                on:change={handleCheckboxChange}
+            />
         </label>
-      </div>
+    </div>
 
-      <div class="checkbox-main-white">
+    <div class="checkbox-main-white">
         <div class="checkbox-child-title">
             <p>Categories</p>
         </div>
@@ -64,35 +66,37 @@
 
     <div class="horizontal" />
 
-      <div>
+    <div>
         <label class="checkbox-main-white">
-            <p class="TTCommons-Regular-16">
-                Computer Science
-            </p>
+            <p class="TTCommons-Regular-16">Computer Science</p>
 
             <div class="flex-fill" />
 
-          <input type="checkbox" name="computerScience" bind:checked={computerScienceChecked} on:change={handleCheckboxChange} />
+            <input
+                type="checkbox"
+                name="computerScience"
+                bind:checked={computerScienceChecked}
+                on:change={handleCheckboxChange}
+            />
         </label>
-      </div>
-      <div>
+    </div>
+    <div>
         <label class="checkbox-main-white">
-            <p class="TTCommons-Regular-16">
-                General Education
-            </p>
+            <p class="TTCommons-Regular-16">General Education</p>
 
             <div class="flex-fill" />
 
-          <input type="checkbox" name="generalEducation" bind:checked={generalEducationChecked} on:change={handleCheckboxChange} />
+            <input
+                type="checkbox"
+                name="generalEducation"
+                bind:checked={generalEducationChecked}
+                on:change={handleCheckboxChange}
+            />
         </label>
-      </div>
-  </div>
+    </div>
+</div>
 
-  
-  
-
-  <style>
-
+<style>
     .horizontal {
         height: 1px;
         width: 100%;

@@ -6,7 +6,10 @@
     import Dropdown from '@/components/Dropdown.svelte';
     import FilterTaskList from '@/components/FilterTaskList.svelte';
 
-    let filterValues = writable({ computerScience: false, generalEducation: false });
+    let filterValues = writable({
+        computerScience: false,
+        generalEducation: false,
+    });
 
     console.log($currentUser);
 
@@ -34,7 +37,6 @@
         // Update the store
         filterValues.set({ computerScience, generalEducation });
     };
-
 </script>
 
 <Layout>
@@ -90,54 +92,54 @@
 
                         {#each $tasks as task (task.uid)}
                             {#if $filterValues.computerScience ? task.category === 'Computer Science' : $filterValues.generalEducation ? task.category === 'General Education' : true}
-                            <div class="tasklist-row-container">
-                                <div class="tasklist-row-tasktitle">
-                                    <div>
-                                        <p
-                                            style="font-family:arial; font-weight: bold;"
-                                        >
-                                            {task.name}
-                                        </p>
+                                <div class="tasklist-row-container">
+                                    <div class="tasklist-row-tasktitle">
+                                        <div>
+                                            <p
+                                                style="font-family:arial; font-weight: bold;"
+                                            >
+                                                {task.name}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="tasklist-row-duedate">
-                                    <div>
-                                        <p style="font-family:arial">
-                                            {task.deadline.toString()}
-                                        </p>
+                                    <div class="tasklist-row-duedate">
+                                        <div>
+                                            <p style="font-family:arial">
+                                                {task.deadline.toString()}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="tasklist-row-category">
-                                    <div class="category-container">
-                                        <div
-                                            class="category-color"
-                                            style="background: rgb(255, 107, 0);"
+                                    <div class="tasklist-row-category">
+                                        <div class="category-container">
+                                            <div
+                                                class="category-color"
+                                                style="background: rgb(255, 107, 0);"
+                                            />
+                                            <p style="font-family:arial">
+                                                {task.category}
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="tasklist-row-status">
+                                        <div>
+                                            <p
+                                                style="font-family:arial; font-weight:bold;  color: #10B981"
+                                            >
+                                                Ongoing
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="tasklist-row-dropdown">
+                                        <Dropdown
+                                            on:delete={() =>
+                                                handleDeleteTask(task.uid)}
                                         />
-                                        <p style="font-family:arial">
-                                            {task.category}
-                                        </p>
                                     </div>
                                 </div>
-
-                                <div class="tasklist-row-status">
-                                    <div>
-                                        <p
-                                            style="font-family:arial; font-weight:bold;  color: #10B981"
-                                        >
-                                            Ongoing
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="tasklist-row-dropdown">
-                                    <Dropdown
-                                        on:delete={() =>
-                                            handleDeleteTask(task.uid)}
-                                    />
-                                </div>
-                            </div>
                             {/if}
                         {/each}
                     </div>
