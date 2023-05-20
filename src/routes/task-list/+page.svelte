@@ -101,7 +101,10 @@
                                 </div>
 
                                 <div class="tasklist-row-dropdown">
-                                    <Dropdown on:delete={() => handleDeleteTask(task.uid)} />
+                                    <Dropdown
+                                        on:delete={() =>
+                                            handleDeleteTask(task.uid)}
+                                    />
                                 </div>
                             </div>
                         {/each}

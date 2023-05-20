@@ -1,7 +1,6 @@
 import { assert } from './asserts';
 import {
     startOfMonth,
-    endOfMonth,
     startOfWeek,
     endOfWeek,
     eachDayOfInterval,

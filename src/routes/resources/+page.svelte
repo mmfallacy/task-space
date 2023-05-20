@@ -1,6 +1,4 @@
 <script lang="ts">
-    import Modal from '@/components/CreateTaskModal.svelte';
-    import { currentUser } from '@/stores/currentUser';
     import Resources from '@/components/Resources.svelte';
     import Layout from '../layout.svelte';
     import { RESOURCES } from '@/stores/resources';
