@@ -2,9 +2,14 @@
     import { tasks } from '@/stores/task';
     import { TaskSchema } from '@/types';
 
+    //import { REWARDS, rewards } from '@/stores/rewards';
+    //import { RewardSchema } from '@/types';
+    //import { currentUser } from '@/stores/currentUser';
+
     let dialog: HTMLDialogElement;
 
     export let showModal: boolean;
+    //export let taskcounter = 0;
 
     $: if (dialog && showModal) dialog.showModal();
 
@@ -13,9 +18,16 @@
         const data = Object.fromEntries(formData.entries());
 
         const task = TaskSchema.omit({ uid: true }).parse(data);
-
         tasks.add(task);
     }
+
+    //if (taskcounter = 3)
+    //    rewards.add({
+    //    userId: '',
+    //    title: '5 days streak',
+    //    dateAcquired: new Date(0),
+    //    description: "Way to go!"
+    //});
 
     let cat = [
         { id: 1, text: 'CS 180' },
