@@ -18,8 +18,8 @@
     }
 
     let cat = [
-        { id: 1, text: 'CS 180' },
-        { id: 2, text: 'CS 192' },
+        { id: 1, text: 'Computer Science' },
+        { id: 2, text: 'General Education' },
     ];
 </script>
 
