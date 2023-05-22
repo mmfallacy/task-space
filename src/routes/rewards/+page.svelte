@@ -2,33 +2,12 @@
     import Layout from '@/routes/layout.svelte';
     import MainFocus from '@/components/Rewards-MainFocus.svelte';
 
-    import { REWARDS, rewards } from '@/stores/rewards';
-    import { RewardSchema } from '@/types';
-    import { currentUser } from '@/stores/currentUser';
+    import { REWARDS } from '@/stores/rewards';
 
-    rewards.add({
-        userId: '74fd6297-f523-4c9c-88be-bf8a52864f7a',
-        title: '3 days streak',
-        dateAcquired: new Date(0),
-        description: "Way to go!"
-    });
-
-    rewards.add({
-        userId: '',
-        title: '5 days streak',
-        dateAcquired: new Date(0),
-        description: "Way to go!"
-    });
 </script>
 
 <Layout>
-    {#each $rewards.filter((reward) => reward.userId === $currentUser) as reward (reward.uid)}
-
-    {reward.title}
-    {reward.dateAcquired}
-    {reward.description}
-
-    {/each}
+    <MainFocus rewards={REWARDS} />
 </Layout>
 
 <style>
