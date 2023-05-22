@@ -56,7 +56,7 @@
                         {#each $tasks as task (task.uid)}
                             <div
                                 class="tasklist-row-container"
-                                on:click={() => tasks.delete(task.uid)}
+                                on:click={() => tasks.completeTask(task.uid)}
                             >
                                 <div class="tasklist-row-tasktitle">
                                     <div>
