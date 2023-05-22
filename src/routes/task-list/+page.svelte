@@ -2,8 +2,13 @@
     import { tasks } from '@/stores/task';
     import { currentUser } from '@/stores/currentUser';
     import Layout from '../layout.svelte';
+    import Dropdown from '@/components/Dropdown.svelte';
 
     console.log($currentUser);
+
+    const handleDeleteTask = (taskUid) => {
+        tasks.delete(taskUid);
+    };
 </script>
 
 <Layout>
@@ -54,10 +59,7 @@
                         </div>
 
                         {#each $tasks as task (task.uid)}
-                            <div
-                                class="tasklist-row-container"
-                                on:click={() => tasks.delete(task.uid)}
-                            >
+                            <div class="tasklist-row-container">
                                 <div class="tasklist-row-tasktitle">
                                     <div>
                                         <p
@@ -99,9 +101,10 @@
                                 </div>
 
                                 <div class="tasklist-row-dropdown">
-                                    <div class="dropdown">
-                                        <p />
-                                    </div>
+                                    <Dropdown
+                                        on:delete={() =>
+                                            handleDeleteTask(task.uid)}
+                                    />
                                 </div>
                             </div>
                         {/each}

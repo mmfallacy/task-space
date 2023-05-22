@@ -2,7 +2,6 @@
     import { CredentialsSchema } from '@/types';
     import { hashSHA256 } from '@/utils';
     import { credentials } from '@/stores/credentials';
-    import { assert } from '@/asserts';
     import { z } from 'zod';
     import { goto } from '$app/navigation';
     import { currentUser } from '@/stores/currentUser';
