@@ -5,18 +5,33 @@
     import Right from 'svelte-icons/md/MdChevronRight.svelte';
     import { today } from '@/utils';
     import { addMonths, format } from 'date-fns';
+    import { writable } from 'svelte/store';
+    import FilterCalendar from '@/components/FilterCalendar.svelte';
 
     let current = today();
+    let filterValues = writable({
+        computerScience: false,
+        generalEducation: false,
+    });
 
     function nextMonth() {
         current = addMonths(current, 1);
     }
+
     function prevMonth() {
         current = addMonths(current, -1);
     }
+
     function thisMonth() {
         current = today();
     }
+
+    const handleFilter = (event) => {
+        const { computerScience, generalEducation } = event.detail;
+
+        // Update the store
+        filterValues.set({ computerScience, generalEducation });
+    };
 </script>
 
 <Layout>
@@ -25,6 +40,8 @@
             <h2>Calendar</h2>
             <hr />
             <h4>Categories</h4>
+
+            <FilterCalendar on:filter={handleFilter} />
         </section>
         <section class="view">
             <header>
@@ -35,9 +52,9 @@
                     <Right />
                 </button>
                 <h2>{format(current, 'MMMM')}</h2>
-                <button on:click={thisMonth} class="today"> Today </button>
+                <button on:click={thisMonth} class="today">Today</button>
             </header>
-            <CalendarView {current} />
+            <CalendarView {current} {filterValues} />
         </section>
     </div>
 </Layout>
