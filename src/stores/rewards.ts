@@ -6,7 +6,7 @@ export const REWARDS: RewardType[] = [
     {
         uid: '',
         userId: '',
-        title: '30 days streak',
+        title: 'Completed 20 tasks',
         dateAcquired: new Date(0),
         description: "Way to go! We're so proud of you :)",
     },
@@ -14,15 +14,7 @@ export const REWARDS: RewardType[] = [
     {
         uid: '',
         userId: '',
-        title: '20 days streak',
-        dateAcquired: new Date(0),
-        description: "It may seem impossible until it's done",
-    },
-
-    {
-        uid: '',
-        userId: '',
-        title: '10 days streak',
+        title: 'Completed 15 tasks',
         dateAcquired: new Date(0),
         description: 'We are capable of amazing things',
     },
@@ -30,31 +22,15 @@ export const REWARDS: RewardType[] = [
     {
         uid: '',
         userId: '',
-        title: '5 days streak',
+        title: 'Completed 10 tasks',
         dateAcquired: new Date(0),
-        description: 'It is the courage to continue that counts',
+        description: "Good job! Now take a well-deserved break :)",
     },
 
     {
         uid: '',
         userId: '',
-        title: 'Completed 5 resources',
-        dateAcquired: new Date(0),
-        description: 'Great job!',
-    },
-
-    {
-        uid: '',
-        userId: '',
-        title: 'Clear all tasks in a day',
-        dateAcquired: new Date(0),
-        description: 'Good job! Now take a well-deserved break :)',
-    },
-
-    {
-        uid: '',
-        userId: '',
-        title: 'Completed 5 tasks in a day',
+        title: 'Completed 5 tasks',
         dateAcquired: new Date(0),
         description: 'What a surge of productivity!',
     },
@@ -62,7 +38,7 @@ export const REWARDS: RewardType[] = [
     {
         uid: '',
         userId: '',
-        title: 'Completed 3 tasks in a day',
+        title: 'Completed 3 tasks',
         dateAcquired: new Date(0),
         description: "You're almost there!",
     },
