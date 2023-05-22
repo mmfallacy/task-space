@@ -63,7 +63,7 @@
 
                             <div class="tasklist-header-category">
                                 <div>
-                                    <p style="font-family:arial" />
+                                    <p style="font-family:arial">Category</p>
                                 </div>
                             </div>
 
