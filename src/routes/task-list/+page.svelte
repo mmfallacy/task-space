@@ -5,6 +5,7 @@
     import Layout from '../layout.svelte';
     import Dropdown from '@/components/Dropdown.svelte';
     import FilterTaskList from '@/components/FilterTaskList.svelte';
+    import TaskListContainer from '@/components/TaskListContainer.svelte';
 
     let filterValues = writable({
         computerScience: false,
@@ -47,34 +48,7 @@
 
                     <div class="horizontal-line" />
 
-                    <div class="tasklist-board-maincontent">
-                        <div class="tasklist-maincontent-header">
-                            <div class="tasklist-header-tasktitle">
-                                <div>
-                                    <p style="font-family:arial">Task Title</p>
-                                </div>
-                            </div>
-
-                            <div class="tasklist-header-duedate">
-                                <div>
-                                    <p style="font-family:arial">Due Date</p>
-                                </div>
-                            </div>
-
-                            <div class="tasklist-header-category">
-                                <div>
-                                    <p style="font-family:arial">Category</p>
-                                </div>
-                            </div>
-
-                            <div class="tasklist-header-status">
-                                <div>
-                                    <p style="font-family:arial">Status</p>
-                                </div>
-                            </div>
-
-                            <div class="tasklist-row-dropdown" />
-                        </div>
+                    <TaskListContainer />
 
                         {#each $tasks as task (task.uid)}
                             {#if $filterValues.computerScience ? task.category === 'Computer Science' : $filterValues.generalEducation ? task.category === 'General Education' : true}
@@ -132,7 +106,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </Layout>
 
 <style>
