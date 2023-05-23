@@ -122,14 +122,14 @@
         flex: 1 1 auto !important;
     }
 
-    .checkbox-container {
+    /* .checkbox-container {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: center;S
         position: relative;
         border-radius: 3px;
         margin-bottom: 0px;
-    }
+    } */
 
     input[type='checkbox'] {
         box-sizing: border-box;
