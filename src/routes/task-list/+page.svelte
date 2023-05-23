@@ -109,48 +109,6 @@
 </Layout>
 
 <style>
-    .tasklist-header-status {
-        flex: 1 1 170px;
-        min-width: 170px;
-    }
-
-    .tasklist-header-category {
-        flex: 1 1 150px;
-        min-width: 150px;
-    }
-
-    .tasklist-header-duedate {
-        flex: 1 1 200px;
-        min-width: 200px;
-    }
-
-    .tasklist-header-tasktitle {
-        flex: 0 1 250px;
-        min-width: 250px;
-    }
-
-    .tasklist-maincontent-header {
-        display: flex;
-        gap: 16px;
-        align-items: center;
-        width: 100%;
-        padding: 8px 16px;
-        background-color: var(--gray-100);
-        border-radius: 5px;
-    }
-
-    .dropdown {
-        background-image: url(Dropdown.png);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 24px;
-        margin: 10px;
-        padding: 10px;
-
-        border: none;
-        cursor: pointer;
-    }
-
     .tasklist-row-dropdown {
         flex: 1 1 170px;
         min-width: 170px;
@@ -202,12 +160,6 @@
         min-height: 64px;
     }
 
-    .tasklist-board-maincontent {
-        flex: 1 1 0%;
-        display: flex;
-        flex-direction: column;
-    }
-
     .horizontal-line {
         border-bottom: 1px solid #e2e8f0;
         margin: 12px -12px;
@@ -248,87 +200,6 @@
         padding: 24px;
     }
 
-    .horizontal {
-        height: 1px;
-        width: 100%;
-        background: #e2e8f0;
-    }
-
-    .checkbox-child-title {
-        font-family: Arial;
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 18px;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: #94a3b8;
-
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-        gap: 8px;
-    }
-
-    .flex-fill {
-        flex: 1 1 auto !important;
-    }
-
-    .checkbox-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        border-radius: 3px;
-        margin-bottom: 0px;
-    }
-
-    input[type='checkbox'] {
-        box-sizing: border-box;
-        padding: 0;
-    }
-
-    input {
-        color: #000;
-
-        overflow: visible;
-
-        margin: 0;
-        font-family: inherit;
-        font-size: inherit;
-        line-height: inherit;
-    }
-
-    .checkbox-list {
-        border: 1px solid #e2e8f0;
-        margin: 0px;
-        padding: 14px;
-        border-radius: 5px;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-    }
-
-    .checkbox-main {
-        background: #000;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        border-radius: 5px;
-        height: 42px;
-        padding: 0 8px;
-        display: flex;
-        align-items: center;
-    }
-
-    .checkbox-main-white {
-        background: white;
-        border-radius: 5px;
-        padding: 0 8px;
-        margin-bottom: 0px;
-        display: flex;
-        align-items: center;
-    }
-
     .left {
         width: 250px;
         height: calc(100vh - 68px);
@@ -340,61 +211,6 @@
         flex-direction: column;
     }
 
-    .navbar {
-        background: #156ef0;
-        z-index: 1000 !important;
-        padding: 15px !important;
-        margin: -10px !important;
-    }
-
-    .selected {
-        cursor: pointer;
-
-        background: #156ef0;
-        border-radius: 8px;
-        border: none;
-    }
-
-    .not-selected {
-        cursor: pointer;
-
-        background: white;
-        border-radius: 8px;
-        border: none;
-    }
-
-    .homebutton {
-        background-image: url('icons/HomeButton.png');
-
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 24px;
-        margin: 10px;
-        padding: 10px;
-
-        border: none;
-    }
-
-    .taskbutton {
-        background-image: url('icons/TaskButton.png');
-
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 24px;
-        margin: 10px;
-        padding: 10px;
-
-        border: none;
-    }
-
-    .plus {
-        cursor: pointer;
-
-        background: #156ef0;
-        border-radius: 8px;
-        border: none;
-    }
-
     .line {
         cursor: pointer;
 
@@ -403,51 +219,9 @@
         border: none;
     }
 
-    .plusbutton {
-        background-image: url('icons/PlusButton.png');
-
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 24px;
-        margin: 10px;
-        padding: 10px;
-
-        border: none;
-    }
-
-    .sidebar {
-        position: absolute;
-        background: white;
-        height: 700px;
-        width: 64px !important;
-        min-width: 64px !important;
-        box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.1);
-
-        margin: 10px -8px;
-        padding: 0px;
-    }
-
-    .sidebar-header {
-        padding: 0px 0px 0px 5px;
-        border-bottom: none;
-    }
-
-    .main {
-        background: #e2e8f0;
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-
     .TTCommons-Regular-16 {
         font-family: Arial;
         font-size: 16px;
-        color: black;
-        letter-spacing: -0.04em;
-    }
-
-    .TTCommons-Regular-20 {
-        font-family: Arial;
-        font-size: 20px;
         color: black;
         letter-spacing: -0.04em;
     }
