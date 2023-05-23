@@ -97,12 +97,12 @@
 </dialog>
 
 <style>
-    .date-time-wrapper {
+    /* .date-time-wrapper {
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 8px;
-    }
+    } */
 
     .form {
         width: 100%;

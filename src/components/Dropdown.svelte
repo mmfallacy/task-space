@@ -40,13 +40,13 @@
         cursor: pointer;
     }
 
-    .kebab-menu__icon {
+    /* .kebab-menu__icon {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         width: 24px;
         height: 24px;
-    }
+    } */
 
     .dropdown {
         background-image: url('/icons/Dropdown.png');
@@ -60,11 +60,11 @@
         cursor: pointer;
     }
 
-    .kebab-menu__icon span {
+    /* .kebab-menu__icon span {
         width: 100%;
         height: 2px;
         background-color: #333;
-    }
+    } */
 
     .dropdown-menu {
         display: none;
