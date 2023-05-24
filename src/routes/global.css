@@ -4,7 +4,9 @@
     box-sizing: border-box;
 }
 
-html, body, body>div{
-    height:100%;
-    width:100%;
+html,
+body,
+body > div {
+    height: 100%;
+    width: 100%;
 }

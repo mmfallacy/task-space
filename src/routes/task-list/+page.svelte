@@ -55,27 +55,26 @@
 
                         {#each $tasks.filter((task) => task.userId === $currentUser) as task (task.uid)}
                             <div
-                            class="tasklist-row-container"
-                            on:click={() => {
-                                tasks.update(task.uid, { isDeleted: true });
-                            }}
-                        >
-                            
-                            <div class="tasklist-row-tasktitle">
-                                {#if task.isDeleted}
-                                    <p
-                                        style="font-family: arial; font-weight: bold; text-decoration: line-through; color: gray;"
-                                    >
-                                        {task.name}
-                                    </p>
-                                {:else}
-                                    <p
-                                        style="font-family: arial; font-weight: bold;"
-                                    >
-                                        {task.name}
-                                    </p>
-                                {/if}
-                            </div>
+                                class="tasklist-row-container"
+                                on:click={() => {
+                                    tasks.update(task.uid, { isDeleted: true });
+                                }}
+                            >
+                                <div class="tasklist-row-tasktitle">
+                                    {#if task.isDeleted}
+                                        <p
+                                            style="font-family: arial; font-weight: bold; text-decoration: line-through; color: gray;"
+                                        >
+                                            {task.name}
+                                        </p>
+                                    {:else}
+                                        <p
+                                            style="font-family: arial; font-weight: bold;"
+                                        >
+                                            {task.name}
+                                        </p>
+                                    {/if}
+                                </div>
 
                                 <div class="tasklist-row-duedate">
                                     {#if task.isDeleted}
@@ -99,19 +98,19 @@
                                             class="category-color"
                                             style="background: rgb(255, 107, 0);"
                                         />
-                                            {#if task.isDeleted}
-                                                <p
-                                                    style="font-family: arial; font-weight: bold; text-decoration: line-through; color: #10B981;"
-                                                >
-                                                    {task.category}
-                                                </p>
-                                            {:else}
-                                                <p
-                                                    style="font-family:arial; font-weight:bold;  color: #10B981"
-                                                >
+                                        {#if task.isDeleted}
+                                            <p
+                                                style="font-family: arial; font-weight: bold; text-decoration: line-through; color: #10B981;"
+                                            >
                                                 {task.category}
-                                                </p>
-                                            {/if}
+                                            </p>
+                                        {:else}
+                                            <p
+                                                style="font-family:arial; font-weight:bold;  color: #10B981"
+                                            >
+                                                {task.category}
+                                            </p>
+                                        {/if}
                                     </div>
                                 </div>
 
@@ -146,7 +145,6 @@
 </Layout>
 
 <style>
-
     .tasklist-header-status {
         flex: 1 1 170px;
         min-width: 170px;
