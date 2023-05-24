@@ -23,6 +23,8 @@ function createTaskStore() {
             ]),
         delete: (uid: TaskType['uid']) =>
             update((tasks) => tasks.filter((task) => task.uid != uid)),
+        update: (uid: TaskType['uid'], changes: Partial<TaskType>) => 
+            update((tasks) => tasks.map(task => task.uid === uid ? { ...task, ...changes } : task)),
         subscribe,
     };
 }
