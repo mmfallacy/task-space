@@ -4,6 +4,13 @@
     import Layout from '../layout.svelte';
 
     console.log($currentUser);
+
+    function markTaskAsCompleted(taskUid) {
+        const task = tasks.find(t => t.uid === taskUid);
+        if (task) {
+            task.completed = !task.completed;
+        }
+    }
 </script>
 
 <Layout>
@@ -56,12 +63,14 @@
                         {#each $tasks.filter((task) => task.userId === $currentUser) as task (task.uid)}
                             <div
                                 class="tasklist-row-container"
-                                on:click={() => tasks.delete(task.uid)}
+                                on:click={() => markTaskAsCompleted(task.uid)}
+                                class:completed={!task.completed}
                             >
                                 <div class="tasklist-row-tasktitle">
                                     <div>
                                         <p
                                             style="font-family:arial; font-weight: bold;"
+                                            class:completed={!task.completed}
                                         >
                                             {task.name}
                                         </p>
@@ -113,6 +122,11 @@
 </Layout>
 
 <style>
+    .completed {
+        text-decoration: line-through;
+        color: grey;
+    }
+
     .tasklist-header-status {
         flex: 1 1 170px;
         min-width: 170px;
