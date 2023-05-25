@@ -116,59 +116,95 @@
                     <TaskListContainer />
 
                     {#each $tasks.filter((task) => task.userId === $currentUser) as task (task.uid)}
-                        <div
-                            class="tasklist-row-container"
-                            on:click={() => {
-                                tasks.completeTask(task.uid);
-                                rewardChecker();
-                            }}
-                        >
-                            <div class="tasklist-row-tasktitle">
-                                <div>
-                                    <p
-                                        style="font-family:arial; font-weight: bold;"
-                                    >
-                                        {task.name}
-                                    </p>
+                        {#if $filterValues.computerScience ? task.category === 'Computer Science' : $filterValues.generalEducation ? task.category === 'General Education' : true}
+                            <div
+                                class="tasklist-row-container"
+                                on:click={() => {
+                                    tasks.completeTask(task.uid);
+                                    rewardChecker();
+                                }}
+                                on:click={() => {
+                                    tasks.update(task.uid, { isDeleted: true });
+                                }}
+                            >
+                                <div class="tasklist-row-tasktitle">
+                                    {#if task.isDeleted}
+                                        <p
+                                            style="font-family: arial; font-weight: bold; text-decoration: line-through; color: gray;"
+                                        >
+                                            {task.name}
+                                        </p>
+                                    {:else}
+                                        <p
+                                            style="font-family: arial; font-weight: bold;"
+                                        >
+                                            {task.name}
+                                        </p>
+                                    {/if}
                                 </div>
-                            </div>
 
-                            <div class="tasklist-row-duedate">
-                                <div>
-                                    <p style="font-family:arial">
-                                        {task.deadline.toString()}
-                                    </p>
+                                <div class="tasklist-row-duedate">
+                                    {#if task.isDeleted}
+                                        <p
+                                            style="font-family: arial; font-weight: bold; text-decoration: line-through; color: gray;"
+                                        >
+                                            {task.deadline.toString()}
+                                        </p>
+                                    {:else}
+                                        <p
+                                            style="font-family: arial; font-weight: bold;"
+                                        >
+                                            {task.deadline.toString()}
+                                        </p>
+                                    {/if}
                                 </div>
-                            </div>
 
-                            <div class="tasklist-row-category">
-                                <div class="category-container">
-                                    <div
-                                        class="category-color"
-                                        style="background: rgb(255, 107, 0);"
+                                <div class="tasklist-row-category">
+                                    <div class="category-container">
+                                        <div
+                                            class="category-color"
+                                            style="background: rgb(255, 107, 0);"
+                                        />
+                                        {#if task.isDeleted}
+                                            <p
+                                                style="font-family: arial; font-weight: bold; text-decoration: line-through; color: #10B981;"
+                                            >
+                                                {task.category}
+                                            </p>
+                                        {:else}
+                                            <p
+                                                style="font-family:arial; font-weight:bold;  color: #10B981"
+                                            >
+                                                {task.category}
+                                            </p>
+                                        {/if}
+                                    </div>
+                                </div>
+
+                                <div class="tasklist-row-status">
+                                    {#if task.isDeleted}
+                                        <p
+                                            style="font-family: arial; font-weight: bold; text-decoration: line-through; color: #10B981;"
+                                        >
+                                            Done
+                                        </p>
+                                    {:else}
+                                        <p
+                                            style="font-family:arial; font-weight:bold;  color: #10B981"
+                                        >
+                                            Ongoing
+                                        </p>
+                                    {/if}
+                                </div>
+
+                                <div class="tasklist-row-dropdown">
+                                    <Dropdown
+                                        on:delete={() =>
+                                            handleDeleteTask(task.uid)}
                                     />
-                                    <p style="font-family:arial">
-                                        {task.category}
-                                    </p>
                                 </div>
                             </div>
-
-                            <div class="tasklist-row-status">
-                                <div>
-                                    <p
-                                        style="font-family:arial; font-weight:bold;  color: #10B981"
-                                    >
-                                        Ongoing
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="tasklist-row-dropdown">
-                                <Dropdown
-                                    on:delete={() => handleDeleteTask(task.uid)}
-                                />
-                            </div>
-                        </div>
+                        {/if}
                     {/each}
                 </div>
             </div>
