@@ -1,13 +1,5 @@
 import { z } from 'zod';
 
-export const TaskSchema = z.object({
-    uid: z.string(),
-    name: z.string(),
-    category: z.string(),
-    deadline: z.coerce.date(),
-    timescale: z.coerce.number().min(1).max(10),
-});
-
 export type TaskType = z.infer<typeof TaskSchema>;
 
 export const BadgeSchema = z.object({
@@ -40,3 +32,12 @@ export const CredentialsSchema = z.object({
 });
 
 export type CredentialsType = z.infer<typeof CredentialsSchema>;
+
+export const TaskSchema = z.object({
+    uid: z.string(),
+    userId: CredentialsSchema.shape.uid,
+    name: z.string(),
+    category: z.string(),
+    deadline: z.coerce.date(),
+    timescale: z.coerce.number().min(1).max(10),
+});

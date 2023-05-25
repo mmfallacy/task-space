@@ -49,10 +49,12 @@
                     <div class="horizontal-line" />
 
                     <TaskListContainer />
-
-                    {#each $tasks as task (task.uid)}
-                        {#if $filterValues.computerScience ? task.category === 'Computer Science' : $filterValues.generalEducation ? task.category === 'General Education' : true}
-                            <div class="tasklist-row-container">
+                    
+                        {#each $tasks.filter((task) => task.userId === $currentUser) as task (task.uid)}
+                            <div
+                                class="tasklist-row-container"
+                                on:click={() => tasks.delete(task.uid)}
+                            >
                                 <div class="tasklist-row-tasktitle">
                                     <div>
                                         <p
