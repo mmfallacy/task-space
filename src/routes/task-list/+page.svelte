@@ -49,59 +49,58 @@
                     <div class="horizontal-line" />
 
                     <TaskListContainer />
-                    
-                        {#each $tasks.filter((task) => task.userId === $currentUser) as task (task.uid)}
-                            <div
-                                class="tasklist-row-container"
-                                on:click={() => tasks.delete(task.uid)}
-                            >
-                                <div class="tasklist-row-tasktitle">
-                                    <div>
-                                        <p
-                                            style="font-family:arial; font-weight: bold;"
-                                        >
-                                            {task.name}
-                                        </p>
-                                    </div>
-                                </div>
 
-                                <div class="tasklist-row-duedate">
-                                    <div>
-                                        <p style="font-family:arial">
-                                            {task.deadline.toString()}
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="tasklist-row-category">
-                                    <div class="category-container">
-                                        <div
-                                            class="category-color"
-                                            style="background: rgb(255, 107, 0);"
-                                        />
-                                        <p style="font-family:arial">
-                                            {task.category}
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="tasklist-row-status">
-                                    <div>
-                                        <p
-                                            style="font-family:arial; font-weight:bold;  color: #10B981"
-                                        >
-                                            Ongoing
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="tasklist-row-dropdown">
-                                    <Dropdown
-                                        on:delete={() =>
-                                            handleDeleteTask(task.uid)}
-                                    />
+                    {#each $tasks.filter((task) => task.userId === $currentUser) as task (task.uid)}
+                        <div
+                            class="tasklist-row-container"
+                            on:click={() => tasks.delete(task.uid)}
+                        >
+                            <div class="tasklist-row-tasktitle">
+                                <div>
+                                    <p
+                                        style="font-family:arial; font-weight: bold;"
+                                    >
+                                        {task.name}
+                                    </p>
                                 </div>
                             </div>
+
+                            <div class="tasklist-row-duedate">
+                                <div>
+                                    <p style="font-family:arial">
+                                        {task.deadline.toString()}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="tasklist-row-category">
+                                <div class="category-container">
+                                    <div
+                                        class="category-color"
+                                        style="background: rgb(255, 107, 0);"
+                                    />
+                                    <p style="font-family:arial">
+                                        {task.category}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="tasklist-row-status">
+                                <div>
+                                    <p
+                                        style="font-family:arial; font-weight:bold;  color: #10B981"
+                                    >
+                                        Ongoing
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="tasklist-row-dropdown">
+                                <Dropdown
+                                    on:delete={() => handleDeleteTask(task.uid)}
+                                />
+                            </div>
+                        </div>
                     {/each}
                 </div>
             </div>
