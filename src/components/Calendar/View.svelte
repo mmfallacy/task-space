@@ -3,6 +3,7 @@
     import { isSameDay, isSameMonth, isToday } from 'date-fns';
     import ViewItem from './ViewItem.svelte';
     import { tasks } from '@/stores/task';
+    // import { currentUser } from '@/stores/currentUser';
 
     export let current: Date;
     export let filterValues;
