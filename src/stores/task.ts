@@ -35,6 +35,12 @@ function createTaskStore() {
                     }
                 })
             ),
+        update: (uid: TaskType['uid'], changes: Partial<TaskType>) =>
+            update((tasks) =>
+                tasks.map((task) =>
+                    task.uid === uid ? { ...task, ...changes } : task
+                )
+            ),
         subscribe,
     };
 }
