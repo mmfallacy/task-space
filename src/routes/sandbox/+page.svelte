@@ -4,7 +4,7 @@
     import Layout from '../layout.svelte';
     //import type { z } from 'zod';
 
-    console.log($currentUser);       
+    console.log($currentUser);
 </script>
 
 <Layout>
@@ -268,4 +268,3 @@
         letter-spacing: -0.04em;
     }
 </style>
-

@@ -3,7 +3,6 @@
     import MainFocus from '@/components/Rewards-MainFocus.svelte';
 
     import { rewards } from '@/stores/rewards';
-
 </script>
 
 <Layout>

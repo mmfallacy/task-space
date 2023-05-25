@@ -46,7 +46,7 @@
         justify-content: space-around;
         width: 24px;
         height: 24px;
-    } 
+    }
 
     .dropdown {
         background-image: url('/icons/Dropdown.png');

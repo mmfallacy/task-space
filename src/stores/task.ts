@@ -8,7 +8,7 @@ import { persistent } from './persistent';
 const TaskStore = z.array(TaskSchema);
 
 function createTaskStore() {
-    const { update, subscribe} = persistent(
+    const { update, subscribe } = persistent(
         'task-store',
         TaskStore.parse([]),
         TaskStore
@@ -23,16 +23,18 @@ function createTaskStore() {
         delete: (uid: TaskType['uid']) =>
             update((tasks) => tasks.filter((task) => task.uid != uid)),
         completeTask: (uid: TaskType['uid']) =>
-        update((tasks) => tasks.map((task) => {
-            if (task.uid === uid) {
-              return {
-                ...task,
-                completed: true
-              }
-            } else {
-              return task
-            }
-          })),
+            update((tasks) =>
+                tasks.map((task) => {
+                    if (task.uid === uid) {
+                        return {
+                            ...task,
+                            completed: true,
+                        };
+                    } else {
+                        return task;
+                    }
+                })
+            ),
         subscribe,
     };
 }
