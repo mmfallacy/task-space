@@ -102,7 +102,6 @@
                                     />
                                 </div>
                             </div>
-                        {/if}
                     {/each}
                 </div>
             </div>
