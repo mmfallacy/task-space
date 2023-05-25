@@ -2,11 +2,11 @@
     import Layout from '@/routes/layout.svelte';
     import MainFocus from '@/components/Rewards-MainFocus.svelte';
 
-    import { REWARDS } from '@/stores/rewards';
+    import { rewards } from '@/stores/rewards';
 </script>
 
 <Layout>
-    <MainFocus rewards={REWARDS} />
+    <MainFocus rewards={$rewards} />
 </Layout>
 
 <style>
