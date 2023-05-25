@@ -120,7 +120,8 @@
                     </div>
                     <br />
 
-                    <button class="primary-button" type="submit">Sign Up</button>
+                    <button class="primary-button" type="submit">Sign Up</button
+                    >
                 </form>
             </div>
         </div>
