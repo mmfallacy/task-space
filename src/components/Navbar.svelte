@@ -1,16 +1,27 @@
-<script>
+<script lang="ts">
     import { currentUser } from '@/stores/currentUser';
     import { goto } from '$app/navigation';
+    import { credentials } from '@/stores/credentials';
+    import type { UserType } from '@/types';
+    import { assert } from '@/asserts';
 
     function logout() {
         currentUser.update((_) => null);
         goto('/');
     }
+
+    function getCurrentUserName() {
+        console.log($credentials);
+        if ($currentUser === null) return 'null';
+        const match = $credentials.filter((user) => user.uid === $currentUser);
+        assert(match.length == 1); // uid should be <unique>
+        return match[0].email;
+    }
 </script>
 
 <div class="navbar">
     <button on:click={logout}>Logout?</button>
-    Hello, {$currentUser}!
+    Hello, {getCurrentUserName()}!
 </div>
 
 <style>
