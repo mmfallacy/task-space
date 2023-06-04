@@ -11,7 +11,6 @@
     }
 
     function getCurrentUserName() {
-        console.log($credentials);
         if ($currentUser === null) return 'null';
         const match = $credentials.filter((user) => user.uid === $currentUser);
         assert(match.length == 1); // uid should be <unique>

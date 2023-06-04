@@ -13,8 +13,6 @@
         generalEducation: false,
     });
 
-    console.log($currentUser);
-
     const handleDeleteTask = (taskUid) => {
         tasks.delete(taskUid);
     };
