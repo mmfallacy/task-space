@@ -120,15 +120,14 @@
                             <div
                                 class="tasklist-row-container"
                                 on:click={() => {
-                                    tasks.completeTask(task.uid);
+                                    tasks.update(task.uid, {
+                                        completed: !task.completed,
+                                    });
                                     rewardChecker();
-                                }}
-                                on:click={() => {
-                                    tasks.update(task.uid, { isDeleted: true });
                                 }}
                             >
                                 <div class="tasklist-row-tasktitle">
-                                    {#if task.isDeleted}
+                                    {#if task.completed}
                                         <p
                                             style="font-family: arial; font-weight: bold; text-decoration: line-through; color: gray;"
                                         >
@@ -144,7 +143,7 @@
                                 </div>
 
                                 <div class="tasklist-row-duedate">
-                                    {#if task.isDeleted}
+                                    {#if task.completed}
                                         <p
                                             style="font-family: arial; font-weight: bold; text-decoration: line-through; color: gray;"
                                         >
@@ -165,7 +164,7 @@
                                             class="category-color"
                                             style="background: rgb(255, 107, 0);"
                                         />
-                                        {#if task.isDeleted}
+                                        {#if task.completed}
                                             <p
                                                 style="font-family: arial; font-weight: bold; text-decoration: line-through; color: #10B981;"
                                             >
@@ -182,7 +181,7 @@
                                 </div>
 
                                 <div class="tasklist-row-status">
-                                    {#if task.isDeleted}
+                                    {#if task.completed}
                                         <p
                                             style="font-family: arial; font-weight: bold; text-decoration: line-through; color: #10B981;"
                                         >
