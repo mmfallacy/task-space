@@ -14,6 +14,8 @@ function createTaskStore() {
         TaskStore
     );
 
+    subscribe(console.log);
+
     return {
         add: (task: Omit<TaskType, 'uid'>) =>
             update((tasks) => [

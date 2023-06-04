@@ -12,8 +12,8 @@
     <span><header>{format(date, 'd')}</header></span>
     <ul class="list">
         {#each tasks as task}
-            <li>
-                <ul class={clsx('dot')} style="--color: blue;" />
+            <li class:completed={task.completed}>
+                <span class={clsx('dot')} style="--color: blue;" />
                 {task.name}
             </li>
         {/each}
@@ -76,6 +76,11 @@
     .item li {
         display: flex;
         align-items: center;
+    }
+
+    .item .completed {
+        text-decoration: line-through;
+        color: gray;
     }
 
     .dot {
