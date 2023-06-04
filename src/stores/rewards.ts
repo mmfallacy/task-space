@@ -12,13 +12,12 @@ function createRewardStore() {
     );
 
     return {
-        add: (reward: Omit<RewardType, 'uid'>) =>
-            update((rewards) => [
-                ...rewards,
-                { uid: crypto.randomUUID(), ...reward },
-            ]),
-        delete: (uid: RewardType['uid']) =>
-            update((rewards) => rewards.filter((reward) => reward.uid != uid)),
+        add: (reward: RewardType) =>
+            update((rewards) => {
+                const match = rewards.filter((r) => reward.title == r.title);
+                if (match.length < 1) rewards.push(reward);
+                return rewards;
+            }),
         subscribe,
     };
 }
