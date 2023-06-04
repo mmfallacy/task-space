@@ -22,6 +22,9 @@
 
         const task = TaskSchema.omit({ uid: true }).parse(data);
         tasks.add(task);
+
+        this.reset();
+        dialog.close();
     }
 
     //if (taskcounter = 3)
