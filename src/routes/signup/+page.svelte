@@ -5,6 +5,7 @@
     import { CredentialsSchema } from '@/types';
     import { hashSHA256 } from '@/utils';
     import { z } from 'zod';
+    import { goto } from '$app/navigation';
 
     // import './styles.css';
     async function onSubmit(this: HTMLFormElement) {
@@ -32,6 +33,7 @@
             return notifications.registered('Email already registered!', 3000);
 
         credentials.add(CredentialsSchema.omit({ uid: true }).parse(processed));
+        goto('/');
     }
 </script>
 
